@@ -8,7 +8,7 @@
         <!--Relógio-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Relogio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RelogioViewController" customModule="Relogio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -35,14 +35,47 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="dEV-8A-lhj"/>
+                        <segue destination="e8F-ha-ufg" kind="relationship" relationship="viewControllers" id="yzs-KD-q5d"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUb-qf-1C9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="340" y="350"/>
         </scene>
+        <!--Frases-->
+        <scene sceneID="jZK-bM-g2m">
+            <objects>
+                <viewController id="e8F-ha-ufg" customClass="FrasesViewController" customModule="Relogio" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lzH-0X-gC6"/>
+                        <viewControllerLayoutGuide type="bottom" id="5gk-2I-1eX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gbp-bb-m69">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frases Motivacionais" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3V-bf-E7l">
+                                <rect key="frame" x="199.5" y="28" width="202.5" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h3V-bf-E7l" firstAttribute="centerX" secondItem="Gbp-bb-m69" secondAttribute="centerX" id="oiB-KQ-kLK"/>
+                            <constraint firstItem="h3V-bf-E7l" firstAttribute="top" secondItem="lzH-0X-gC6" secondAttribute="bottom" constant="8" id="qLo-Vz-jqM"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Frases" image="Frases" selectedImage="Frases" id="bAH-bk-6UZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcV-BA-P3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1157" y="1123"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Frases" width="36" height="36"/>
         <image name="Relogio" width="36" height="36"/>
     </resources>
 </document>

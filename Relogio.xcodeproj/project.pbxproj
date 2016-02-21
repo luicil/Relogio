@@ -12,6 +12,8 @@
 		3EAEBB6F1C79F162006DADAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBB6D1C79F162006DADAF /* Main.storyboard */; };
 		3EAEBB711C79F162006DADAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBB701C79F162006DADAF /* Assets.xcassets */; };
 		3EAEBB741C79F162006DADAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBB721C79F162006DADAF /* LaunchScreen.storyboard */; };
+		3EDD93E01C7A2DBF00625FAA /* RelogioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD93DF1C7A2DBF00625FAA /* RelogioViewController.swift */; };
+		3EDD93E21C7A2DCB00625FAA /* FrasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD93E11C7A2DCB00625FAA /* FrasesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		3EAEBB701C79F162006DADAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EAEBB731C79F162006DADAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EAEBB751C79F162006DADAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EDD93DF1C7A2DBF00625FAA /* RelogioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelogioViewController.swift; sourceTree = "<group>"; };
+		3EDD93E11C7A2DCB00625FAA /* FrasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrasesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 				3EAEBB691C79F162006DADAF /* AppDelegate.swift */,
 				3EAEBB6B1C79F162006DADAF /* ViewController.swift */,
 				3EAEBB6D1C79F162006DADAF /* Main.storyboard */,
+				3EDD93DF1C7A2DBF00625FAA /* RelogioViewController.swift */,
+				3EDD93E11C7A2DCB00625FAA /* FrasesViewController.swift */,
 				3EAEBB701C79F162006DADAF /* Assets.xcassets */,
 				3EAEBB721C79F162006DADAF /* LaunchScreen.storyboard */,
 				3EAEBB751C79F162006DADAF /* Info.plist */,
@@ -136,7 +142,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EDD93E21C7A2DCB00625FAA /* FrasesViewController.swift in Sources */,
 				3EAEBB6C1C79F162006DADAF /* ViewController.swift in Sources */,
+				3EDD93E01C7A2DBF00625FAA /* RelogioViewController.swift in Sources */,
 				3EAEBB6A1C79F162006DADAF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +295,7 @@
 				3EAEBB7A1C79F162006DADAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
