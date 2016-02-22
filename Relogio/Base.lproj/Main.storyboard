@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Relógio-->
@@ -55,19 +56,89 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frases Motivacionais" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3V-bf-E7l">
-                                <rect key="frame" x="199.5" y="28" width="202.5" height="24"/>
+                                <rect key="frame" x="199" y="28" width="202.5" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Informe a frase motivacional aqui" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wa8-oT-7gL">
+                                <rect key="frame" x="20" y="60" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tzn-ZF-xdH">
+                                <rect key="frame" x="20" y="98" width="560" height="34"/>
+                                <color key="backgroundColor" red="1" green="0.99171107950000004" blue="0.54477268369999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Incluir"/>
+                                <connections>
+                                    <action selector="btnIncuir:" destination="e8F-ha-ufg" eventType="touchUpInside" id="vrA-8E-z7Y"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z9N-lr-Dca">
+                                <rect key="frame" x="20" y="140" width="560" height="403"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CustomTableViewCell" id="HoZ-t1-tFT" customClass="CustomTableViewCell" customModule="Relogio" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HoZ-t1-tFT" id="WCh-CU-Zvg">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRV-hv-ZMk">
+                                                    <rect key="frame" x="8" y="11" width="500" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="500" id="Xbz-0S-Rmh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dpw-DA-fVf">
+                                                    <rect key="frame" x="532" y="8" width="20" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="00D-7C-wwn"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="Excluir"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Dpw-DA-fVf" firstAttribute="top" secondItem="WCh-CU-Zvg" secondAttribute="topMargin" id="75f-oB-gAv"/>
+                                                <constraint firstItem="iRV-hv-ZMk" firstAttribute="top" secondItem="WCh-CU-Zvg" secondAttribute="topMargin" constant="3" id="R8n-Fb-uUD"/>
+                                                <constraint firstItem="iRV-hv-ZMk" firstAttribute="leading" secondItem="WCh-CU-Zvg" secondAttribute="leadingMargin" id="ddu-PN-B5Z"/>
+                                                <constraint firstItem="Dpw-DA-fVf" firstAttribute="trailing" secondItem="WCh-CU-Zvg" secondAttribute="trailingMargin" id="prs-7N-uW8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="CustomLabel" destination="iRV-hv-ZMk" id="6Ph-8C-6QU"/>
+                                            <outlet property="excBtn" destination="Dpw-DA-fVf" id="oH1-eL-nZ6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Z9N-lr-Dca" firstAttribute="trailing" secondItem="Gbp-bb-m69" secondAttribute="trailingMargin" id="4yt-gU-Fus"/>
+                            <constraint firstItem="Tzn-ZF-xdH" firstAttribute="leading" secondItem="Gbp-bb-m69" secondAttribute="leadingMargin" id="YUg-1p-Cbq"/>
+                            <constraint firstItem="Tzn-ZF-xdH" firstAttribute="trailing" secondItem="Gbp-bb-m69" secondAttribute="trailingMargin" id="bJO-hu-BD2"/>
+                            <constraint firstItem="wa8-oT-7gL" firstAttribute="trailing" secondItem="Gbp-bb-m69" secondAttribute="trailingMargin" id="ejI-YQ-cdJ"/>
+                            <constraint firstItem="5gk-2I-1eX" firstAttribute="top" secondItem="Z9N-lr-Dca" secondAttribute="bottom" constant="8" id="kgj-nz-Hwa"/>
                             <constraint firstItem="h3V-bf-E7l" firstAttribute="centerX" secondItem="Gbp-bb-m69" secondAttribute="centerX" id="oiB-KQ-kLK"/>
                             <constraint firstItem="h3V-bf-E7l" firstAttribute="top" secondItem="lzH-0X-gC6" secondAttribute="bottom" constant="8" id="qLo-Vz-jqM"/>
+                            <constraint firstItem="wa8-oT-7gL" firstAttribute="leading" secondItem="Gbp-bb-m69" secondAttribute="leadingMargin" id="r8l-A6-1Gd"/>
+                            <constraint firstItem="wa8-oT-7gL" firstAttribute="top" secondItem="h3V-bf-E7l" secondAttribute="bottom" constant="8" id="waL-US-h13"/>
+                            <constraint firstItem="Tzn-ZF-xdH" firstAttribute="top" secondItem="wa8-oT-7gL" secondAttribute="bottom" constant="8" id="yd5-a5-Yek"/>
+                            <constraint firstItem="Z9N-lr-Dca" firstAttribute="top" secondItem="Tzn-ZF-xdH" secondAttribute="bottom" constant="8" id="ziy-se-gcq"/>
+                            <constraint firstItem="Z9N-lr-Dca" firstAttribute="leading" secondItem="Gbp-bb-m69" secondAttribute="leadingMargin" id="zvE-pT-peE"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Frases" image="Frases" selectedImage="Frases" id="bAH-bk-6UZ"/>
+                    <connections>
+                        <outlet property="tableView" destination="Z9N-lr-Dca" id="2kJ-1Z-mic"/>
+                        <outlet property="txtField" destination="wa8-oT-7gL" id="kSb-UM-Ycy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcV-BA-P3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,6 +146,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Excluir" width="16" height="16"/>
         <image name="Frases" width="36" height="36"/>
         <image name="Relogio" width="36" height="36"/>
     </resources>

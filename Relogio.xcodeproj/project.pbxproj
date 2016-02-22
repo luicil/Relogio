@@ -14,6 +14,7 @@
 		3EAEBB741C79F162006DADAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBB721C79F162006DADAF /* LaunchScreen.storyboard */; };
 		3EDD93E01C7A2DBF00625FAA /* RelogioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD93DF1C7A2DBF00625FAA /* RelogioViewController.swift */; };
 		3EDD93E21C7A2DCB00625FAA /* FrasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD93E11C7A2DCB00625FAA /* FrasesViewController.swift */; };
+		3EDD93E41C7A5DF800625FAA /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD93E31C7A5DF800625FAA /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3EAEBB751C79F162006DADAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EDD93DF1C7A2DBF00625FAA /* RelogioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelogioViewController.swift; sourceTree = "<group>"; };
 		3EDD93E11C7A2DCB00625FAA /* FrasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrasesViewController.swift; sourceTree = "<group>"; };
+		3EDD93E31C7A5DF800625FAA /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				3EAEBB691C79F162006DADAF /* AppDelegate.swift */,
 				3EAEBB6B1C79F162006DADAF /* ViewController.swift */,
 				3EAEBB6D1C79F162006DADAF /* Main.storyboard */,
+				3EDD93E31C7A5DF800625FAA /* CustomTableViewCell.swift */,
 				3EDD93DF1C7A2DBF00625FAA /* RelogioViewController.swift */,
 				3EDD93E11C7A2DCB00625FAA /* FrasesViewController.swift */,
 				3EAEBB701C79F162006DADAF /* Assets.xcassets */,
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EDD93E21C7A2DCB00625FAA /* FrasesViewController.swift in Sources */,
+				3EDD93E41C7A5DF800625FAA /* CustomTableViewCell.swift in Sources */,
 				3EAEBB6C1C79F162006DADAF /* ViewController.swift in Sources */,
 				3EDD93E01C7A2DBF00625FAA /* RelogioViewController.swift in Sources */,
 				3EAEBB6A1C79F162006DADAF /* AppDelegate.swift in Sources */,
