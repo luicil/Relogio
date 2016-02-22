@@ -87,10 +87,27 @@ class FrasesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func excBtn(sender: UIButton) {
-        let pos : Int = sender.tag
-        tableData.removeAtIndex(pos)
-        saveData()
-        tableView.reloadData()
+        
+        let refreshAlert = UIAlertController(title: "Frases Motivacionais", message: "Deseja excluir a frase motivacional ?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Sim", style: .Default, handler: { (action: UIAlertAction!) in
+            let pos : Int = sender.tag
+            self.tableData.removeAtIndex(pos)
+            self.saveData()
+            self.tableView.reloadData()
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Não", style: .Default, handler: { (action: UIAlertAction!) in
+            //não faz nada
+        }))
+        
+        presentViewController(refreshAlert, animated: true, completion: nil)
+        
+        
+//        let pos : Int = sender.tag
+//        tableData.removeAtIndex(pos)
+//        saveData()
+//        tableView.reloadData()
     }
 }
 
