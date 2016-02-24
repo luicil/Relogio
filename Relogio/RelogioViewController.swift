@@ -9,48 +9,26 @@
 import UIKit
 
 class RelogioViewController: UIViewController {
-
-    func rotateLayer(currentLayer:CALayer,dur:CFTimeInterval){
-        
-        let angle = degree2radian(360)
-        
-        // rotation http://stackoverflow.com/questions/1414923/how-to-rotate-uiimageview-with-fix-point
-        let theAnimation = CABasicAnimation(keyPath:"transform.rotation.z")
-        theAnimation.duration = dur
-        // Make this view controller the delegate so it knows when the animation starts and ends
-        theAnimation.delegate = self
-        theAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        // Use fromValue and toValue
-        theAnimation.fromValue = 0
-        theAnimation.repeatCount = Float.infinity
-        theAnimation.toValue = angle
-        
-        // Add the animation to the layer
-        currentLayer.addAnimation(theAnimation, forKey:"rotate")
-        
-    }
     
     func startClock() {
-    
-        let deslocamento : CGFloat = 20
         
         let endAngle = CGFloat(2*M_PI)
         
         
         
-        let newView = View(frame: CGRect(x: 0, y: deslocamento, width: CGRectGetWidth(self.view.frame), height: CGRectGetWidth(self.view.frame)))
+        let newView = View(frame: CGRect(x: 0, y: 0, width: CGRectGetWidth(self.view.frame), height: CGRectGetHeight(self.view.frame)))
         
 
         
         self.view.addSubview(newView)
-        let time = timeCoords(CGRectGetMidX(newView.frame), y: CGRectGetMidY(newView.frame) - deslocamento, time: ctime(),radius: 50)
+        let time = timeCoords(CGRectGetMidX(newView.frame), y: CGRectGetMidY(newView.frame), time: ctime(),radius: 50)
         // Do any additional setup after loading the view, typically from a nib.
         // Hours
         let hourLayer = CAShapeLayer()
         hourLayer.frame = newView.frame
         let path = CGPathCreateMutable()
         
-        CGPathMoveToPoint(path, nil, CGRectGetMidX(newView.frame), CGRectGetMidY(newView.frame) - deslocamento)
+        CGPathMoveToPoint(path, nil, CGRectGetMidX(newView.frame), CGRectGetMidY(newView.frame))
         CGPathAddLineToPoint(path, nil, time.h.x, time.h.y)
         hourLayer.path = path
         hourLayer.lineWidth = 4
@@ -63,14 +41,14 @@ class RelogioViewController: UIViewController {
         
         self.view.layer.addSublayer(hourLayer)
         // time it takes for hour hand to pass through 360 degress
-        rotateLayer(hourLayer,dur:43200)
+        rotateLayer(hourLayer,dur:43200, view:self)
         
         // Minutes
         let minuteLayer = CAShapeLayer()
         minuteLayer.frame = newView.frame
         let minutePath = CGPathCreateMutable()
         
-        CGPathMoveToPoint(minutePath, nil, CGRectGetMidX(newView.frame), CGRectGetMidY(newView.frame) - deslocamento)
+        CGPathMoveToPoint(minutePath, nil, CGRectGetMidX(newView.frame), CGRectGetMidY(newView.frame))
         CGPathAddLineToPoint(minutePath, nil, time.m.x, time.m.y )
         minuteLayer.path = minutePath
         minuteLayer.lineWidth = 3
@@ -81,14 +59,14 @@ class RelogioViewController: UIViewController {
         minuteLayer.shouldRasterize = true
         
         self.view.layer.addSublayer(minuteLayer)
-        rotateLayer(minuteLayer,dur: 3600)
+        rotateLayer(minuteLayer,dur: 3600, view:self)
         
         // Seconds
         let secondLayer = CAShapeLayer()
         secondLayer.frame = newView.frame
         
         let secondPath = CGPathCreateMutable()
-        CGPathMoveToPoint(secondPath, nil, CGRectGetMidX(newView.frame), CGRectGetMidY(newView.frame) - deslocamento)
+        CGPathMoveToPoint(secondPath, nil, CGRectGetMidX(newView.frame), CGRectGetMidY(newView.frame))
         CGPathAddLineToPoint(secondPath, nil, time.s.x, time.s.y)
         
         
@@ -101,10 +79,10 @@ class RelogioViewController: UIViewController {
         
         secondLayer.shouldRasterize = true
         self.view.layer.addSublayer(secondLayer)
-        rotateLayer(secondLayer,dur: 60)
+        rotateLayer(secondLayer,dur: 60, view:self)
         let centerPiece = CAShapeLayer()
         
-        let circle = UIBezierPath(arcCenter: CGPoint(x:CGRectGetMidX(newView.frame),y:CGRectGetMidX(newView.frame) + deslocamento), radius: 4.5, startAngle: 0, endAngle: endAngle, clockwise: true)
+        let circle = UIBezierPath(arcCenter: CGPoint(x:CGRectGetMidX(newView.frame),y:CGRectGetMidY(newView.frame)), radius: 4.5, startAngle: 0, endAngle: endAngle, clockwise: true)
         // thanks to http://stackoverflow.com/a/19395006/1694526 for how to fill the color
         centerPiece.path = circle.CGPath
         centerPiece.fillColor = UIColor.whiteColor().CGColor
@@ -113,7 +91,6 @@ class RelogioViewController: UIViewController {
 
     }
     
-    
     override func viewWillAppear(animated: Bool) {
         self.startClock()
     }
@@ -121,87 +98,36 @@ class RelogioViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        let endAngle = CGFloat(2*M_PI)
-//        
-//        
-//        let newView = View(frame: CGRect(x: 0, y: 0, width: CGRectGetWidth(self.view.frame), height: CGRectGetWidth(self.view.frame)))
-//        
-//        
-//        self.view.addSubview(newView)
-//        let time = timeCoords(CGRectGetMidX(newView.frame), y: CGRectGetMidY(newView.frame), time: ctime(),radius: 50)
-//        // Do any additional setup after loading the view, typically from a nib.
-//        // Hours
-//        let hourLayer = CAShapeLayer()
-//        hourLayer.frame = newView.frame
-//        let path = CGPathCreateMutable()
-//        
-//        CGPathMoveToPoint(path, nil, CGRectGetMidX(newView.frame), CGRectGetMidY(newView.frame))
-//        CGPathAddLineToPoint(path, nil, time.h.x, time.h.y)
-//        hourLayer.path = path
-//        hourLayer.lineWidth = 4
-//        hourLayer.lineCap = kCALineCapRound
-//        hourLayer.strokeColor = UIColor.blackColor().CGColor
-//        
-//        // see for rasterization advice http://stackoverflow.com/questions/24316705/how-to-draw-a-smooth-circle-with-cashapelayer-and-uibezierpath
-//        hourLayer.rasterizationScale = UIScreen.mainScreen().scale;
-//        hourLayer.shouldRasterize = true
-//        
-//        self.view.layer.addSublayer(hourLayer)
-//        // time it takes for hour hand to pass through 360 degress
-//        rotateLayer(hourLayer,dur:43200)
-//        
-//        // Minutes
-//        let minuteLayer = CAShapeLayer()
-//        minuteLayer.frame = newView.frame
-//        let minutePath = CGPathCreateMutable()
-//        
-//        CGPathMoveToPoint(minutePath, nil, CGRectGetMidX(newView.frame), CGRectGetMidY(newView.frame))
-//        CGPathAddLineToPoint(minutePath, nil, time.m.x, time.m.y)
-//        minuteLayer.path = minutePath
-//        minuteLayer.lineWidth = 3
-//        minuteLayer.lineCap = kCALineCapRound
-//        minuteLayer.strokeColor = UIColor.whiteColor().CGColor
-//        
-//        minuteLayer.rasterizationScale = UIScreen.mainScreen().scale;
-//        minuteLayer.shouldRasterize = true
-//        
-//        self.view.layer.addSublayer(minuteLayer)
-//        rotateLayer(minuteLayer,dur: 3600)
-//        
-//        // Seconds
-//        let secondLayer = CAShapeLayer()
-//        secondLayer.frame = newView.frame
-//        
-//        let secondPath = CGPathCreateMutable()
-//        CGPathMoveToPoint(secondPath, nil, CGRectGetMidX(newView.frame), CGRectGetMidY(newView.frame))
-//        CGPathAddLineToPoint(secondPath, nil, time.s.x, time.s.y)
-//        
-//        
-//        secondLayer.path = secondPath
-//        secondLayer.lineWidth = 1
-//        secondLayer.lineCap = kCALineCapRound
-//        secondLayer.strokeColor = UIColor.redColor().CGColor
-//        
-//        secondLayer.rasterizationScale = UIScreen.mainScreen().scale;
-//        
-//        secondLayer.shouldRasterize = true
-//        self.view.layer.addSublayer(secondLayer)
-//        rotateLayer(secondLayer,dur: 60)
-//        let centerPiece = CAShapeLayer()
-//        
-//        let circle = UIBezierPath(arcCenter: CGPoint(x:CGRectGetMidX(newView.frame),y:CGRectGetMidX(newView.frame)), radius: 4.5, startAngle: 0, endAngle: endAngle, clockwise: true)
-//        // thanks to http://stackoverflow.com/a/19395006/1694526 for how to fill the color
-//        centerPiece.path = circle.CGPath
-//        centerPiece.fillColor = UIColor.whiteColor().CGColor
-//        self.view.layer.addSublayer(centerPiece)
-//        
+     
         
     }
     
-    
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        startClock()
+    }
     
 }
 
+
+func rotateLayer(currentLayer:CALayer,dur:CFTimeInterval, view:UIViewController){
+    
+    let angle = degree2radian(360)
+    
+    // rotation http://stackoverflow.com/questions/1414923/how-to-rotate-uiimageview-with-fix-point
+    let theAnimation = CABasicAnimation(keyPath:"transform.rotation.z")
+    theAnimation.duration = dur
+    // Make this view controller the delegate so it knows when the animation starts and ends
+    theAnimation.delegate = view
+    theAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+    // Use fromValue and toValue
+    theAnimation.fromValue = 0
+    theAnimation.repeatCount = Float.infinity
+    theAnimation.toValue = angle
+    
+    // Add the animation to the layer
+    currentLayer.addAnimation(theAnimation, forKey:"rotate")
+    
+}
 
 // MARK: Retrieve time
 func ctime ()->(h:Int,m:Int,s:Int) {
@@ -252,7 +178,6 @@ func degree2radian(a:CGFloat)->CGFloat {
     return b
 }
 
-
 func circleCircumferencePoints(sides:Int,x:CGFloat,y:CGFloat,radius:CGFloat,adjustment:CGFloat=0)->[CGPoint] {
     let angle = degree2radian(360/CGFloat(sides))
     let cx = x // x origin
@@ -301,6 +226,7 @@ func secondMarkers(ctx ctx:CGContextRef, x:CGFloat, y:CGFloat, radius:CGFloat, s
     CGContextStrokePath(ctx)
     
 }
+
 func drawText(rect rect:CGRect, ctx:CGContextRef, x:CGFloat, y:CGFloat, radius:CGFloat, sides:NumberOfNumerals, color:UIColor) {
     
     // Flip text co-ordinate space, see: http://blog.spacemanlabs.com/2011/08/quick-tip-drawing-core-text-right-side-up/
