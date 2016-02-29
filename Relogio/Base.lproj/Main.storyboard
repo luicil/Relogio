@@ -37,11 +37,31 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="dEV-8A-lhj"/>
                         <segue destination="e8F-ha-ufg" kind="relationship" relationship="viewControllers" id="yzs-KD-q5d"/>
+                        <segue destination="Gva-MS-h4j" kind="relationship" relationship="viewControllers" id="q0x-5h-LWi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUb-qf-1C9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="340" y="350"/>
+        </scene>
+        <!--Configurações-->
+        <scene sceneID="YO7-cG-Rs4">
+            <objects>
+                <viewController id="Gva-MS-h4j" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MRw-pq-a4p"/>
+                        <viewControllerLayoutGuide type="bottom" id="z7X-ua-6dT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="thp-ym-tEA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Configurações" image="Config" id="ae5-Bj-xMO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adl-xz-L64" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="282" y="1187"/>
         </scene>
         <!--Frases-->
         <scene sceneID="jZK-bM-g2m">
@@ -146,6 +166,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Config" width="24" height="24"/>
         <image name="Excluir" width="16" height="16"/>
         <image name="Frases" width="36" height="36"/>
         <image name="Relogio" width="36" height="36"/>

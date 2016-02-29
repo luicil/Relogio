@@ -14,13 +14,34 @@ class RelogioViewController: UIViewController {
         
         let endAngle = CGFloat(2*M_PI)
         
-        
+            if let viewWithTag = self.view.viewWithTag(100){
+                if let subLayers = self.view.layer.sublayers{
+                    for layer in subLayers{
+                        var nome : String = ""
+                        if layer.name != nil {
+                           nome = layer.name!
+                        }
+                      
+                        switch nome{
+                            case "horas", "minutos", "segundos", "circulo":
+                                layer.removeFromSuperlayer()
+                        default:break
+                        }
+                    }
+                }
+                self.view.bringSubviewToFront(viewWithTag)
+                viewWithTag.removeFromSuperview()
+                
+            }
+            
         
         let newView = View(frame: CGRect(x: 0, y: 0, width: CGRectGetWidth(self.view.frame), height: CGRectGetHeight(self.view.frame)))
         
-
+        newView.tag = 100
         
         self.view.addSubview(newView)
+        self.view.sendSubviewToBack(newView)
+        
         let time = timeCoords(CGRectGetMidX(newView.frame), y: CGRectGetMidY(newView.frame), time: ctime(),radius: 50)
         // Do any additional setup after loading the view, typically from a nib.
         // Hours
@@ -38,7 +59,7 @@ class RelogioViewController: UIViewController {
         // see for rasterization advice http://stackoverflow.com/questions/24316705/how-to-draw-a-smooth-circle-with-cashapelayer-and-uibezierpath
         hourLayer.rasterizationScale = UIScreen.mainScreen().scale;
         hourLayer.shouldRasterize = true
-        
+        hourLayer.name = "horas"
         self.view.layer.addSublayer(hourLayer)
         // time it takes for hour hand to pass through 360 degress
         rotateLayer(hourLayer,dur:43200, view:self)
@@ -57,7 +78,7 @@ class RelogioViewController: UIViewController {
         
         minuteLayer.rasterizationScale = UIScreen.mainScreen().scale;
         minuteLayer.shouldRasterize = true
-        
+        minuteLayer.name="minutos"
         self.view.layer.addSublayer(minuteLayer)
         rotateLayer(minuteLayer,dur: 3600, view:self)
         
@@ -78,6 +99,7 @@ class RelogioViewController: UIViewController {
         secondLayer.rasterizationScale = UIScreen.mainScreen().scale;
         
         secondLayer.shouldRasterize = true
+        secondLayer.name = "segundos"
         self.view.layer.addSublayer(secondLayer)
         rotateLayer(secondLayer,dur: 60, view:self)
         let centerPiece = CAShapeLayer()
@@ -86,8 +108,8 @@ class RelogioViewController: UIViewController {
         // thanks to http://stackoverflow.com/a/19395006/1694526 for how to fill the color
         centerPiece.path = circle.CGPath
         centerPiece.fillColor = UIColor.whiteColor().CGColor
+        centerPiece.name="circulo"
         self.view.layer.addSublayer(centerPiece)
-        
 
     }
     
@@ -98,7 +120,6 @@ class RelogioViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-     
         
     }
     
