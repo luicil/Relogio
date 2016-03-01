@@ -113,6 +113,8 @@ class RelogioViewController: UIViewController {
 
     }
     
+
+    
     override func viewWillAppear(animated: Bool) {
         self.startClock()
     }
@@ -121,11 +123,22 @@ class RelogioViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "startClock",
+            name: UIApplicationDidBecomeActiveNotification,
+            object: nil)
+        
+        //UIApplicationWillEnterForegroundNotification
+        
+        //UIApplicationDidBecomeActiveNotification
+        
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        startClock()
+        self.startClock()
     }
+    
     
 }
 
