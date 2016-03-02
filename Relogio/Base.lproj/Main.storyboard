@@ -55,13 +55,84 @@
                     <view key="view" contentMode="scaleToFill" id="thp-ym-tEA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configurações" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qz-bY-iS1">
+                                <rect key="frame" x="229" y="20" width="142" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Dígitos no relógio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQZ-rS-0ZE">
+                                <rect key="frame" x="234" y="60" width="134" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relogio-4" translatesAutoresizingMaskIntoConstraints="NO" id="Lhx-px-a0B">
+                                <rect key="frame" x="280" y="100" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="cFs-1U-ef9"/>
+                                    <constraint firstAttribute="height" constant="40" id="thQ-o3-mIK"/>
+                                </constraints>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="192" y="100" width="40" height="40"/>
+                                </variation>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="3mj-Ua-S74">
+                                <rect key="frame" x="148" y="155" width="304" height="31"/>
+                                <accessibility key="accessibilityConfiguration" label="aa"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="7oE-ZB-tKA"/>
+                                </constraints>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="43" y="170" width="339" height="31"/>
+                                </variation>
+                            </slider>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relogio-2" translatesAutoresizingMaskIntoConstraints="NO" id="9lb-ZN-KPJ">
+                                <rect key="frame" x="150" y="100" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="cmR-hs-7po"/>
+                                    <constraint firstAttribute="width" constant="40" id="iHC-o5-Xer"/>
+                                </constraints>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="192" y="100" width="40" height="40"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relogio-12" translatesAutoresizingMaskIntoConstraints="NO" id="zxC-Mx-CcE">
+                                <rect key="frame" x="410" y="100" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0Bw-r9-O8a"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="9Mz-sc-gMH"/>
+                                    <constraint firstAttribute="width" constant="40" id="Ehb-9p-RMT"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="IIx-tj-bZT"/>
+                                </constraints>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="192" y="100" width="40" height="40"/>
+                                </variation>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zxC-Mx-CcE" firstAttribute="top" secondItem="Lhx-px-a0B" secondAttribute="top" id="4LH-LR-qre"/>
+                            <constraint firstItem="5qz-bY-iS1" firstAttribute="centerX" secondItem="thp-ym-tEA" secondAttribute="centerX" id="5Ls-dn-Jcs"/>
+                            <constraint firstItem="3mj-Ua-S74" firstAttribute="top" secondItem="Lhx-px-a0B" secondAttribute="bottom" constant="15" id="7ad-Bc-tfX"/>
+                            <constraint firstItem="3mj-Ua-S74" firstAttribute="centerX" secondItem="thp-ym-tEA" secondAttribute="centerX" id="CBv-zD-HfP"/>
+                            <constraint firstItem="9lb-ZN-KPJ" firstAttribute="top" secondItem="Lhx-px-a0B" secondAttribute="top" id="DrX-dD-ML6"/>
+                            <constraint firstItem="zxC-Mx-CcE" firstAttribute="trailing" secondItem="3mj-Ua-S74" secondAttribute="trailing" id="EKU-FS-DEo"/>
+                            <constraint firstItem="SQZ-rS-0ZE" firstAttribute="centerX" secondItem="thp-ym-tEA" secondAttribute="centerX" id="Jjp-xR-kuK"/>
+                            <constraint firstItem="Lhx-px-a0B" firstAttribute="centerX" secondItem="thp-ym-tEA" secondAttribute="centerX" id="Ywd-IN-aNt"/>
+                            <constraint firstItem="9lb-ZN-KPJ" firstAttribute="leading" secondItem="3mj-Ua-S74" secondAttribute="leading" id="e9P-BI-Bmh"/>
+                            <constraint firstItem="SQZ-rS-0ZE" firstAttribute="top" secondItem="5qz-bY-iS1" secondAttribute="bottom" constant="16" id="feP-Dc-B4D"/>
+                            <constraint firstItem="Lhx-px-a0B" firstAttribute="top" secondItem="SQZ-rS-0ZE" secondAttribute="bottom" constant="19.5" id="j9y-3K-CCP"/>
+                            <constraint firstItem="9lb-ZN-KPJ" firstAttribute="top" secondItem="MRw-pq-a4p" secondAttribute="bottom" constant="80" id="lja-9b-E3Q"/>
+                            <constraint firstItem="5qz-bY-iS1" firstAttribute="top" secondItem="MRw-pq-a4p" secondAttribute="bottom" id="p12-WF-ZS5"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Configurações" image="Config" id="ae5-Bj-xMO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adl-xz-L64" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="282" y="1187"/>
+            <point key="canvasLocation" x="443" y="1186"/>
         </scene>
         <!--Frases-->
         <scene sceneID="jZK-bM-g2m">
@@ -170,5 +241,8 @@
         <image name="Excluir" width="16" height="16"/>
         <image name="Frases" width="36" height="36"/>
         <image name="Relogio" width="36" height="36"/>
+        <image name="relogio-12" width="128" height="128"/>
+        <image name="relogio-2" width="122" height="123"/>
+        <image name="relogio-4" width="122" height="123"/>
     </resources>
 </document>
