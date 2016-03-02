@@ -10,13 +10,18 @@ import UIKit
 
 class ConfigViewController: UIViewController {
 
+    @IBOutlet weak var viewDigRelogio: UIView!
+    @IBOutlet weak var sliderDigRelogio: UISlider!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        //self.tabBarController?.tabBar.hidden = true
+        viewDigRelogio.layer.borderWidth = 1.0
+        viewDigRelogio.layer.cornerRadius = 40.0
 
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,5 +39,14 @@ class ConfigViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func sliderDigRelogioAct(sender: AnyObject) {
+        sender.setValue(Float(lroundf(self.sliderDigRelogio.value)), animated: true)
+    }
+    
+
+    @IBAction func gestureRel2Act(sender: UITapGestureRecognizer) {
+        self.sliderDigRelogio.setValue(1, animated: true)
+    }
 
 }
