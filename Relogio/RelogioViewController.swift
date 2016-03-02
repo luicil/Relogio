@@ -116,8 +116,10 @@ class RelogioViewController: UIViewController {
 
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         self.startClock()
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,16 +131,16 @@ class RelogioViewController: UIViewController {
             name: UIApplicationDidBecomeActiveNotification,
             object: nil)
         
-        //UIApplicationWillEnterForegroundNotification
-        
-        //UIApplicationDidBecomeActiveNotification
+        //self.tabBarController?.tabBar.hidden = true
         
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
         self.startClock()
     }
     
+
     
 }
 

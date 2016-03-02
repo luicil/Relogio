@@ -14,6 +14,8 @@
 		3EDD93E01C7A2DBF00625FAA /* RelogioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD93DF1C7A2DBF00625FAA /* RelogioViewController.swift */; };
 		3EDD93E21C7A2DCB00625FAA /* FrasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD93E11C7A2DCB00625FAA /* FrasesViewController.swift */; };
 		3EDD93E41C7A5DF800625FAA /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD93E31C7A5DF800625FAA /* CustomTableViewCell.swift */; };
+		3EE380031C86EDD300169E48 /* clsPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE380021C86EDD300169E48 /* clsPersistance.swift */; };
+		3EFC609D1C865F2B004239AB /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC609C1C865F2B004239AB /* ConfigViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		3EDD93DF1C7A2DBF00625FAA /* RelogioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelogioViewController.swift; sourceTree = "<group>"; };
 		3EDD93E11C7A2DCB00625FAA /* FrasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrasesViewController.swift; sourceTree = "<group>"; };
 		3EDD93E31C7A5DF800625FAA /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		3EE380021C86EDD300169E48 /* clsPersistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clsPersistance.swift; sourceTree = "<group>"; };
+		3EFC609C1C865F2B004239AB /* ConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +66,12 @@
 				3EAEBB6D1C79F162006DADAF /* Main.storyboard */,
 				3EDD93E31C7A5DF800625FAA /* CustomTableViewCell.swift */,
 				3EDD93DF1C7A2DBF00625FAA /* RelogioViewController.swift */,
+				3EFC609C1C865F2B004239AB /* ConfigViewController.swift */,
 				3EDD93E11C7A2DCB00625FAA /* FrasesViewController.swift */,
 				3EAEBB701C79F162006DADAF /* Assets.xcassets */,
 				3EAEBB721C79F162006DADAF /* LaunchScreen.storyboard */,
 				3EAEBB751C79F162006DADAF /* Info.plist */,
+				3EE380021C86EDD300169E48 /* clsPersistance.swift */,
 			);
 			path = Relogio;
 			sourceTree = "<group>";
@@ -142,9 +148,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EE380031C86EDD300169E48 /* clsPersistance.swift in Sources */,
 				3EDD93E21C7A2DCB00625FAA /* FrasesViewController.swift in Sources */,
 				3EDD93E41C7A5DF800625FAA /* CustomTableViewCell.swift in Sources */,
 				3EDD93E01C7A2DBF00625FAA /* RelogioViewController.swift in Sources */,
+				3EFC609D1C865F2B004239AB /* ConfigViewController.swift in Sources */,
 				3EAEBB6A1C79F162006DADAF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

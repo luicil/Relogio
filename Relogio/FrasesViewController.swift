@@ -26,7 +26,11 @@ class FrasesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.dataSource = self
         checkForSavedData()
         
+        //self.tabBarController?.tabBar.hidden = true
+
+        
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
