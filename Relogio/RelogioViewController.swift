@@ -352,10 +352,30 @@ class View: UIView {
         
         
         secondMarkers(ctx: ctx!, x: CGRectGetMidX(rect), y: CGRectGetMidY(rect), radius: rad, sides: 60, color: UIColor.whiteColor())
+
         
-        drawText(rect:rect, ctx: ctx!, x: CGRectGetMidX(rect), y: CGRectGetMidY(rect), radius: rad, sides: .twelve, color: UIColor.whiteColor())
+        let cPers = RelogioPersistance()
+        let sides : Int = cPers.loadDigRelogio()
+        let nDig : NumberOfNumerals
         
         
+        
+        switch sides{
+        case 1:
+            nDig = .two
+        case 2:
+            nDig = .four
+        case 3:
+            nDig = .twelve
+        default:
+            nDig = .twelve
+        }
+        
+        
+        //drawText(rect:rect, ctx: ctx!, x: CGRectGetMidX(rect), y: CGRectGetMidY(rect), radius: rad, sides: .twelve, color: UIColor.whiteColor())
+        
+        drawText(rect:rect, ctx: ctx!, x: CGRectGetMidX(rect), y: CGRectGetMidY(rect), radius: rad, sides: nDig, color: UIColor.whiteColor())
+
         
         
     }

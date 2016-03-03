@@ -84,15 +84,23 @@
                                     </imageView>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relogio-4" translatesAutoresizingMaskIntoConstraints="NO" id="bEq-1U-tWh">
                                         <rect key="frame" x="260" y="52" width="40" height="39"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="Rfd-g3-s99"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="1s5-2Z-fjv" appends="YES" id="5Wi-gY-sGR"/>
+                                        </connections>
                                     </imageView>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relogio-12" translatesAutoresizingMaskIntoConstraints="NO" id="00W-BK-qgg">
                                         <rect key="frame" x="486" y="52" width="40" height="39"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="MSC-by-ZAR"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="jXl-TM-TMu" appends="YES" id="1R8-fC-Dct"/>
+                                        </connections>
                                     </imageView>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwl-Ua-xPT">
                                         <rect key="frame" x="30" y="99" width="42" height="21"/>
@@ -110,18 +118,26 @@
                                     </label>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DW7-oF-cgb">
                                         <rect key="frame" x="486" y="99" width="42" height="21"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="NdU-DX-e0N" appends="YES" id="lZ0-xM-unv"/>
+                                        </connections>
                                     </label>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnt-aK-hvC">
                                         <rect key="frame" x="259" y="99" width="42" height="21"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="42" id="RKg-c6-1Vd"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="kq1-Po-J7r" appends="YES" id="KoF-0k-ged"/>
+                                        </connections>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="qoD-3D-X4p">
                                         <rect key="frame" x="37" y="120" width="486" height="31"/>
@@ -187,6 +203,26 @@
                 <tapGestureRecognizer id="AmD-Sk-6Gn">
                     <connections>
                         <action selector="gestureRel2Act:" destination="Gva-MS-h4j" id="o0a-0l-HVP"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="1s5-2Z-fjv">
+                    <connections>
+                        <action selector="gestureRel4Act:" destination="Gva-MS-h4j" id="DIj-Vq-rH1"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="kq1-Po-J7r">
+                    <connections>
+                        <action selector="gestureRel4Act:" destination="Gva-MS-h4j" id="B4O-Pr-GRQ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="jXl-TM-TMu">
+                    <connections>
+                        <action selector="gestureRel12Act:" destination="Gva-MS-h4j" id="q7U-cH-vov"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="NdU-DX-e0N">
+                    <connections>
+                        <action selector="gestureRel12Act:" destination="Gva-MS-h4j" id="TGJ-BZ-kfo"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -291,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcV-BA-P3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1157" y="1123"/>
+            <point key="canvasLocation" x="1142" y="1186"/>
         </scene>
     </scenes>
     <resources>

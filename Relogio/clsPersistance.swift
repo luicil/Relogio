@@ -10,4 +10,18 @@ import Foundation
 
 class RelogioPersistance {
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
+    func saveDigRelogio(nDig : Int) {
+        defaults.setInteger(nDig, forKey: "nDig")
+        defaults.synchronize()
+    }
+    
+    func loadDigRelogio() -> Int {
+        if let nDig : Int = defaults.integerForKey("nDig") {
+            return nDig
+        }
+        return 3
+        
+    }
 }

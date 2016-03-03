@@ -20,8 +20,9 @@ class ConfigViewController: UIViewController {
         
         viewDigRelogio.layer.borderWidth = 1.0
         viewDigRelogio.layer.cornerRadius = 40.0
-
         
+        self.sliderDigRelogio.setValue(Float(self.readnDig()), animated: true)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,13 +41,37 @@ class ConfigViewController: UIViewController {
     }
     */
     
+    func savenDig(nDig : Int) {
+        let cPers = RelogioPersistance()
+        cPers.saveDigRelogio(nDig)
+    }
+    
+    func readnDig() -> Int {
+        let cPers = RelogioPersistance()
+        return cPers.loadDigRelogio()
+    }
+    
+    
     @IBAction func sliderDigRelogioAct(sender: AnyObject) {
         sender.setValue(Float(lroundf(self.sliderDigRelogio.value)), animated: true)
+        self.savenDig(Int(self.sliderDigRelogio.value))
     }
     
 
     @IBAction func gestureRel2Act(sender: UITapGestureRecognizer) {
         self.sliderDigRelogio.setValue(1, animated: true)
+        self.savenDig(Int(self.sliderDigRelogio.value))
     }
+
+    @IBAction func gestureRel4Act(sender: UITapGestureRecognizer) {
+        self.sliderDigRelogio.setValue(2, animated: true)
+        self.savenDig(Int(self.sliderDigRelogio.value))
+    }
+    
+    @IBAction func gestureRel12Act(sender: UITapGestureRecognizer) {
+        self.sliderDigRelogio.setValue(3, animated: true)
+        self.savenDig(Int(self.sliderDigRelogio.value))
+    }
+    
 
 }
