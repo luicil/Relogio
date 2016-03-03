@@ -26,4 +26,19 @@ class RelogioPersistance {
         return nDig
         
     }
+    
+    func saveFrases(tableData : [String]) {
+        defaults.setObject(tableData as [NSString], forKey: "frases")
+        defaults.synchronize()
+    }
+    
+    func loadFrases() -> [NSString] {
+
+        if let savedData : [NSString] = defaults.objectForKey("frases") as? [NSString] {
+
+            return savedData
+        }
+        return []
+    }
+    
 }

@@ -25,10 +25,7 @@ class FrasesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         checkForSavedData()
-        
-        //self.tabBarController?.tabBar.hidden = true
 
-        
     }
 
 
@@ -64,12 +61,15 @@ class FrasesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func saveData() {
-        defaults.setObject(tableData as [NSString], forKey: "frases")
-        defaults.synchronize()
+
+        let cPers = RelogioPersistance()
+        cPers.saveFrases(tableData)
+        
     }
     
     func checkForSavedData() ->Bool {
-        if let savedData : [NSString] = defaults.objectForKey("frases") as? [NSString] {
+        let cPers = RelogioPersistance()
+        if let savedData : [NSString] = cPers.loadFrases() {
             for data in savedData {
                 tableData.append(data as String)
             }
@@ -107,11 +107,6 @@ class FrasesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         presentViewController(refreshAlert, animated: true, completion: nil)
         
-        
-//        let pos : Int = sender.tag
-//        tableData.removeAtIndex(pos)
-//        saveData()
-//        tableView.reloadData()
     }
 }
 
