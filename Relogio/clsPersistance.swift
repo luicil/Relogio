@@ -18,10 +18,12 @@ class RelogioPersistance {
     }
     
     func loadDigRelogio() -> Int {
-        if let nDig : Int = defaults.integerForKey("nDig") {
-            return nDig
+
+        var nDig : Int = defaults.integerForKey("nDig")
+        if nDig == 0 {
+            nDig = 3
         }
-        return 3
+        return nDig
         
     }
 }
