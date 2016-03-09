@@ -6,6 +6,7 @@
 //  Copyright © 2016 Luicil Fernandes. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class RelogioPersistance {
@@ -40,5 +41,15 @@ class RelogioPersistance {
         }
         return []
     }
+    
+    func saveImage(img : UIImage) {
+        if let data = UIImagePNGRepresentation(img) {
+            defaults.setObject(data, forKey: "backImage")
+            defaults.synchronize()
+        }
+
+    }
+    
+
     
 }
