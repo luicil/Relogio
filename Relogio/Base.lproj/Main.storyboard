@@ -18,9 +18,23 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hU7-er-fDl">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hU7-er-fDl" secondAttribute="trailing" id="B5C-B6-7zQ"/>
+                            <constraint firstItem="hU7-er-fDl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PZf-2C-zV5"/>
+                            <constraint firstItem="hU7-er-fDl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Sao-Qi-U2G"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hU7-er-fDl" secondAttribute="bottom" id="bxK-pg-ydu"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Relógio" image="Relogio" selectedImage="Relogio" id="ARG-gA-8b4"/>
+                    <connections>
+                        <outlet property="imageViewRelogio" destination="hU7-er-fDl" id="ezL-ww-j9u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -64,7 +78,7 @@
                             <tableViewSection headerTitle="Alterar Dígitos no Relógio" id="4M5-0t-pcy">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="118" id="0BO-zx-6QC">
-                                        <rect key="frame" x="0.0" y="89" width="600" height="118"/>
+                                        <rect key="frame" x="0.0" y="88.5" width="600" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0BO-zx-6QC" id="TKL-7i-bAT">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="117.5"/>

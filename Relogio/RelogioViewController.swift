@@ -10,7 +10,15 @@ import UIKit
 
 class RelogioViewController: UIViewController {
     
+    @IBOutlet weak var imageViewRelogio: UIImageView!
+    
     func startClock() {
+        
+        let cPers = RelogioPersistance()
+        self.imageViewRelogio.image = cPers.loadImage()
+        self.imageViewRelogio.alpha = CGFloat(cPers.loadTransparencia())
+        
+        
         
         let endAngle = CGFloat(2*M_PI)
         
