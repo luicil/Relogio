@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E6A53D91C8BAEA200647471 /* CustomConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6A53D81C8BAEA200647471 /* CustomConfigTableViewCell.swift */; };
+		3E9BDF001C90D51600E64598 /* ConfigTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9BDEFF1C90D51600E64598 /* ConfigTableViewController.swift */; };
 		3EAEBB6A1C79F162006DADAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAEBB691C79F162006DADAF /* AppDelegate.swift */; };
 		3EAEBB6F1C79F162006DADAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBB6D1C79F162006DADAF /* Main.storyboard */; };
 		3EAEBB711C79F162006DADAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBB701C79F162006DADAF /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		3E6A53D81C8BAEA200647471 /* CustomConfigTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomConfigTableViewCell.swift; sourceTree = "<group>"; };
+		3E9BDEFF1C90D51600E64598 /* ConfigTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigTableViewController.swift; sourceTree = "<group>"; };
 		3EAEBB661C79F162006DADAF /* Relogio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Relogio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAEBB691C79F162006DADAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EAEBB6E1C79F162006DADAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				3EAEBB751C79F162006DADAF /* Info.plist */,
 				3EE380021C86EDD300169E48 /* clsPersistance.swift */,
 				3E6A53D81C8BAEA200647471 /* CustomConfigTableViewCell.swift */,
+				3E9BDEFF1C90D51600E64598 /* ConfigTableViewController.swift */,
 			);
 			path = Relogio;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				3EFC609D1C865F2B004239AB /* ConfigViewController.swift in Sources */,
 				3E6A53D91C8BAEA200647471 /* CustomConfigTableViewCell.swift in Sources */,
 				3EAEBB6A1C79F162006DADAF /* AppDelegate.swift in Sources */,
+				3E9BDF001C90D51600E64598 /* ConfigTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

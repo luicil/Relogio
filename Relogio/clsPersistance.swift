@@ -47,9 +47,29 @@ class RelogioPersistance {
             defaults.setObject(data, forKey: "backImage")
             defaults.synchronize()
         }
-
+        
     }
     
-
+    func loadImage() -> UIImage {
+        let myOutput: AnyObject? = defaults.objectForKey("backImage")
+        if myOutput != nil {
+            return UIImage(data: myOutput! as! NSData)!
+        }
+        return UIImage()
+    }
+    
+    func deleteImage() {
+        defaults.removeObjectForKey("backImage")
+        defaults.synchronize()
+    }
+    
+    func saveTransparencia(valTransp : Float) {
+        defaults.setFloat(valTransp, forKey: "transparencia")
+        defaults.synchronize()
+    }
+    
+    func loadTransparencia() -> Float {
+        return defaults.floatForKey("transparencia")
+    }
     
 }

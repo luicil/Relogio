@@ -48,13 +48,13 @@
         <!--Configurações-->
         <scene sceneID="U2y-5V-UCZ">
             <objects>
-                <tableViewController title="Configurações" id="DRp-5v-urr" sceneMemberID="viewController">
+                <tableViewController title="Configurações" id="DRp-5v-urr" customClass="ConfigTableViewController" customModule="Relogio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="dxC-Zh-h4d">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configurações" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N5P-nE-zlP">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -63,8 +63,8 @@
                         <sections>
                             <tableViewSection headerTitle="Alterar Dígitos no Relógio" id="4M5-0t-pcy">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="118" id="0BO-zx-6QC">
-                                        <rect key="frame" x="0.0" y="93.5" width="600" height="118"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="118" id="0BO-zx-6QC">
+                                        <rect key="frame" x="0.0" y="89" width="600" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0BO-zx-6QC" id="TKL-7i-bAT">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="117.5"/>
@@ -77,9 +77,12 @@
                                                         <constraint firstAttribute="height" constant="40" id="C11-mT-51q"/>
                                                         <constraint firstAttribute="width" constant="40" id="W8F-5c-11I"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="97I-Ej-6yQ" appends="YES" id="HEh-Pb-QO7"/>
+                                                    </connections>
                                                 </imageView>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sai-Nb-LmA">
-                                                    <rect key="frame" x="8" y="49" width="42" height="20.5"/>
+                                                    <rect key="frame" x="8" y="49" width="42" height="21"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="42" id="idT-Wo-wmZ"/>
@@ -87,6 +90,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="b2G-oM-OwW" appends="YES" id="ZaA-Md-eZd"/>
+                                                    </connections>
                                                 </label>
                                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relogio-4" translatesAutoresizingMaskIntoConstraints="NO" id="P1C-hJ-ovS">
                                                     <rect key="frame" x="280" y="8" width="40" height="40"/>
@@ -95,13 +101,22 @@
                                                         <constraint firstAttribute="width" constant="40" id="N1f-fW-Bw6"/>
                                                         <constraint firstAttribute="height" constant="40" id="pzH-8h-4z9"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="5vW-Q2-Kkt" appends="YES" id="De3-1b-XVG"/>
+                                                    </connections>
                                                 </imageView>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8x-CD-XHC">
-                                                    <rect key="frame" x="294" y="49" width="11" height="20.5"/>
+                                                    <rect key="frame" x="278.5" y="49" width="42" height="21"/>
                                                     <gestureRecognizers/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="opv-Ed-OT2"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="x63-ON-D4l" appends="YES" id="z0U-LR-639"/>
+                                                    </connections>
                                                 </label>
                                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relogio-12" translatesAutoresizingMaskIntoConstraints="NO" id="etT-Ew-lTA">
                                                     <rect key="frame" x="552" y="8" width="40" height="40"/>
@@ -110,37 +125,49 @@
                                                         <constraint firstAttribute="width" constant="40" id="Gyb-iF-Xk2"/>
                                                         <constraint firstAttribute="height" constant="40" id="WA4-Q9-zOk"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="sfu-49-joK" appends="YES" id="mOA-W7-uvB"/>
+                                                    </connections>
                                                 </imageView>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yht-HJ-3gf">
-                                                    <rect key="frame" x="563.5" y="52" width="17.5" height="12"/>
+                                                    <rect key="frame" x="552" y="47" width="42" height="21"/>
                                                     <gestureRecognizers/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="0hC-H9-Mff"/>
+                                                        <constraint firstAttribute="height" constant="21" id="UmD-Az-2Sa"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="CUv-NI-qvr" appends="YES" id="4p6-sh-7ft"/>
+                                                    </connections>
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="Vpp-YN-Lju">
                                                     <rect key="frame" x="15" y="68" width="574" height="31"/>
                                                     <connections>
                                                         <action selector="sliderDigRelogioAct:" destination="Gva-MS-h4j" eventType="valueChanged" id="xiG-9L-rrh"/>
+                                                        <action selector="sliderRelogioAct:" destination="DRp-5v-urr" eventType="valueChanged" id="lX5-kP-y9v"/>
                                                     </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Sai-Nb-LmA" firstAttribute="leading" secondItem="TKL-7i-bAT" secondAttribute="leadingMargin" id="1bS-wQ-lzP"/>
                                                 <constraint firstItem="Vpp-YN-Lju" firstAttribute="leading" secondItem="TKL-7i-bAT" secondAttribute="leadingMargin" constant="9" id="4pj-hs-fdz"/>
-                                                <constraint firstItem="X8x-CD-XHC" firstAttribute="centerX" secondItem="TKL-7i-bAT" secondAttribute="centerX" id="92R-fC-qeP"/>
-                                                <constraint firstItem="Vpp-YN-Lju" firstAttribute="top" secondItem="Yht-HJ-3gf" secondAttribute="bottom" constant="4" id="9uG-EU-pbF"/>
-                                                <constraint firstItem="Yht-HJ-3gf" firstAttribute="top" secondItem="etT-Ew-lTA" secondAttribute="bottom" constant="4" id="GzF-Ji-mne"/>
+                                                <constraint firstItem="X8x-CD-XHC" firstAttribute="centerY" secondItem="TKL-7i-bAT" secondAttribute="centerY" id="Gc0-Fm-wg2"/>
+                                                <constraint firstItem="X8x-CD-XHC" firstAttribute="baseline" secondItem="Sai-Nb-LmA" secondAttribute="baseline" id="Hf5-ZP-Bs1"/>
                                                 <constraint firstItem="etT-Ew-lTA" firstAttribute="trailing" secondItem="TKL-7i-bAT" secondAttribute="trailingMargin" id="J1U-yb-GRr"/>
                                                 <constraint firstItem="P1C-hJ-ovS" firstAttribute="top" secondItem="TKL-7i-bAT" secondAttribute="topMargin" id="Sql-gf-sA6"/>
+                                                <constraint firstItem="X8x-CD-XHC" firstAttribute="top" secondItem="P1C-hJ-ovS" secondAttribute="bottom" constant="1" id="UHo-CR-Z4M"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Vpp-YN-Lju" secondAttribute="bottom" constant="11.5" id="YLR-lW-brv"/>
-                                                <constraint firstItem="X8x-CD-XHC" firstAttribute="top" secondItem="P1C-hJ-ovS" secondAttribute="bottom" constant="1.5" id="agP-KV-PjK"/>
+                                                <constraint firstItem="Yht-HJ-3gf" firstAttribute="top" secondItem="TKL-7i-bAT" secondAttribute="topMargin" constant="39" id="bEn-N5-93O"/>
                                                 <constraint firstItem="A8X-wI-7md" firstAttribute="leading" secondItem="TKL-7i-bAT" secondAttribute="leadingMargin" id="bYr-lQ-JcY"/>
                                                 <constraint firstItem="etT-Ew-lTA" firstAttribute="top" secondItem="TKL-7i-bAT" secondAttribute="topMargin" id="dCo-BU-AbQ"/>
+                                                <constraint firstItem="X8x-CD-XHC" firstAttribute="centerX" secondItem="P1C-hJ-ovS" secondAttribute="centerX" id="iWS-ar-rug"/>
                                                 <constraint firstItem="Vpp-YN-Lju" firstAttribute="centerX" secondItem="P1C-hJ-ovS" secondAttribute="centerX" constant="2" id="jj5-ux-LGO"/>
                                                 <constraint firstItem="P1C-hJ-ovS" firstAttribute="centerX" secondItem="TKL-7i-bAT" secondAttribute="centerX" id="joX-ev-HJl"/>
                                                 <constraint firstItem="Sai-Nb-LmA" firstAttribute="top" secondItem="A8X-wI-7md" secondAttribute="bottom" constant="1.5" id="kOZ-lf-Iwc"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Yht-HJ-3gf" secondAttribute="trailing" constant="11" id="nn3-vu-Ujn"/>
+                                                <constraint firstItem="Yht-HJ-3gf" firstAttribute="leading" secondItem="etT-Ew-lTA" secondAttribute="leading" id="lIS-m6-0oK"/>
                                                 <constraint firstItem="A8X-wI-7md" firstAttribute="top" secondItem="TKL-7i-bAT" secondAttribute="topMargin" id="w13-yz-McF"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -150,7 +177,7 @@
                             <tableViewSection headerTitle="Alterar Cores do Relógio" id="u4h-4P-lhA">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Lak-vb-GYS">
-                                        <rect key="frame" x="0.0" y="261.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="256.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lak-vb-GYS" id="ZrO-iU-mWJ">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -172,7 +199,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="wUq-wB-wXd">
-                                        <rect key="frame" x="0.0" y="305.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="300.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wUq-wB-wXd" id="4Sw-JD-qz1">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -194,7 +221,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="FcW-vt-1rN">
-                                        <rect key="frame" x="0.0" y="349.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="344.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FcW-vt-1rN" id="Idn-rI-NP3">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -216,7 +243,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="OHG-Zg-pM9">
-                                        <rect key="frame" x="0.0" y="393.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="388.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OHG-Zg-pM9" id="8qC-2S-QmC">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -238,7 +265,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="pQE-RB-ksC">
-                                        <rect key="frame" x="0.0" y="437.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="432.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pQE-RB-ksC" id="V6J-rg-OhV">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -260,7 +287,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="lE2-bd-CPZ">
-                                        <rect key="frame" x="0.0" y="481.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="476.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lE2-bd-CPZ" id="A3o-xs-xvU">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -286,7 +313,7 @@
                             <tableViewSection headerTitle="ALTERAR IMAGEM DO FUNDO DA TELA" id="YVT-42-EGN">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="259" id="CnQ-N1-qrc" userLabel="ImagemFundoTela">
-                                        <rect key="frame" x="0.0" y="575.5" width="600" height="259"/>
+                                        <rect key="frame" x="0.0" y="570.5" width="600" height="259"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CnQ-N1-qrc" id="E68-2n-Y1n">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="258.5"/>
@@ -306,11 +333,14 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Uqt-wg-YAE">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Uqt-wg-YAE">
                                                     <rect key="frame" x="208" y="216" width="184" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Fr2-y8-zta"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="sliderTransparenciaAct:" destination="DRp-5v-urr" eventType="valueChanged" id="Ar4-UU-fvV"/>
+                                                    </connections>
                                                 </slider>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWS-ke-6nf">
                                                     <rect key="frame" x="400" y="49" width="40" height="40"/>
@@ -319,6 +349,9 @@
                                                         <constraint firstAttribute="height" constant="40" id="rYs-4M-xJC"/>
                                                     </constraints>
                                                     <state key="normal" image="Edit"/>
+                                                    <connections>
+                                                        <action selector="editImageBtn:" destination="DRp-5v-urr" eventType="touchUpInside" id="FEy-rp-MZl"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GL9-eB-RGL">
                                                     <rect key="frame" x="400" y="103" width="40" height="40"/>
@@ -327,6 +360,9 @@
                                                         <constraint firstAttribute="width" constant="40" id="gbM-Cr-GVZ"/>
                                                     </constraints>
                                                     <state key="normal" image="Excluir"/>
+                                                    <connections>
+                                                        <action selector="deleteImageBtn:" destination="DRp-5v-urr" eventType="touchUpInside" id="2ZD-nG-4jp"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -354,8 +390,43 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Configurações" image="Config" id="cC8-SS-Pg9"/>
+                    <connections>
+                        <outlet property="imageView" destination="MeS-YO-One" id="Fzp-dN-JcO"/>
+                        <outlet property="sliderRelogio" destination="Vpp-YN-Lju" id="WF5-l3-9ot"/>
+                        <outlet property="sliderTransparencia" destination="Uqt-wg-YAE" id="FGa-vC-HgC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xvS-CZ-vlz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="97I-Ej-6yQ" userLabel="gestureRelogio2">
+                    <connections>
+                        <action selector="gesture2Act:" destination="DRp-5v-urr" id="lXa-Df-GdO"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="5vW-Q2-Kkt" userLabel="gestureRelogio4">
+                    <connections>
+                        <action selector="gesture4Act:" destination="DRp-5v-urr" id="bm4-vc-rid"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="sfu-49-joK" userLabel="gestureRelogio12">
+                    <connections>
+                        <action selector="gesture12Act:" destination="DRp-5v-urr" id="W93-lK-RrZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="b2G-oM-OwW" userLabel="gesture2">
+                    <connections>
+                        <action selector="gesture2Act:" destination="DRp-5v-urr" id="Kha-MY-g6u"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="x63-ON-D4l" userLabel="gesture4">
+                    <connections>
+                        <action selector="gesture4Act:" destination="DRp-5v-urr" id="TyU-65-mWt"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="CUv-NI-qvr" userLabel="gesture12">
+                    <connections>
+                        <action selector="gesture12Act:" destination="DRp-5v-urr" id="g7V-l5-6Wr"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-245" y="1185"/>
         </scene>
