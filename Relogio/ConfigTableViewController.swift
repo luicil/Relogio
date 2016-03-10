@@ -14,6 +14,19 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
     @IBOutlet weak var sliderTransparencia: UISlider!
     @IBOutlet weak var imageView: UIImageView!
 
+    @IBOutlet weak var configTableView: UITableView!
+    
+    let sectionCores : Int = 1
+    
+    let corPonteirodasHoras : Int = 0
+    let corPonteirodosMinutos : Int = 1
+    let corPonteirodosSegundos : Int = 2
+    let corFundodoRelogio : Int = 3
+    let corFundodaTela : Int = 4
+    let corBordaeDigitosdoRelogio : Int = 5
+    
+    let arrCores : [String] = ["Cor para o Ponteiro das Horas","Cor para o Ponteiro dos Minutos","Cor para o Ponteiro dos Segundos","Cor do Fundo do Relógio","Cor do Fundo da Tela","Cor da Borda e Dígitos do Relógio"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,70 +48,37 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
         // Dispose of any resources that can be recreated.
     }
     
-    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//        let headerView = view as! UITableViewHeaderFooterView
-//        headerView.textLabel!.textColor = UIColor(red: 151.0/255, green: 193.0/255, blue: 100.0/255, alpha: 1)
-//        let font = UIFont(name: "Montserrat", size: 18.0)
-//        headerView.textLabel!.font = font!
-    }
 
     // MARK: - Table view data source
 
-//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-//
-//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let section = indexPath.section
+        if section == sectionCores {
+            let linha = indexPath.row
+            //prepareForSegue(<#T##segue: UIStoryboardSegue##UIStoryboardSegue#>, sender: self)
+            
+            
+            switch linha {
+            case corPonteirodasHoras:
+                let a = 1+1
+            case corPonteirodosMinutos:
+                let a = 1+1
+            case corPonteirodosSegundos:
+                let a = 1+1
+            case corFundodoRelogio:
+                let a = 1+1
+            case corFundodaTela:
+                let a = 1+1
+            case corBordaeDigitosdoRelogio:
+                let a = 1+1
+            default:
+                let a = 1+1
+                
+            }
+            
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+    
     /*
     // MARK: - Navigation
 
