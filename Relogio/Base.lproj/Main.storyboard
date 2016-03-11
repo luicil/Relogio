@@ -480,6 +480,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="VTi-P6-4z3"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="sliderVermelhoAct:" destination="z8A-pz-tG4" eventType="valueChanged" id="RFX-fd-eIG"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Azul" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4z-c5-eMC">
                                 <rect key="frame" x="283" y="194" width="33.5" height="20.5"/>
@@ -492,6 +495,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Q2r-P6-UDQ"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="sliderAzulAct:" destination="z8A-pz-tG4" eventType="valueChanged" id="myj-wx-BOH"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Verde" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HA-th-MmE">
                                 <rect key="frame" x="277" y="299" width="45" height="21"/>
@@ -505,6 +511,9 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="cxI-ZY-iP8"/>
                                     <constraint firstAttribute="width" constant="200" id="fDD-Qq-dV5"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="sliderVerde:" destination="z8A-pz-tG4" eventType="valueChanged" id="z5z-bT-ugN"/>
+                                </connections>
                             </slider>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oxh-Yg-Gji">
                                 <rect key="frame" x="200" y="389" width="200" height="38"/>
@@ -520,7 +529,10 @@
                                     <constraint firstAttribute="height" constant="60" id="Xf8-Di-89D"/>
                                     <constraint firstAttribute="width" constant="163" id="zBI-hg-JdJ"/>
                                 </constraints>
-                                <state key="normal" title="Cancelar"/>
+                                <state key="normal" title="Confirmar"/>
+                                <connections>
+                                    <action selector="confirmarBtn:" destination="z8A-pz-tG4" eventType="touchUpInside" id="f3w-aJ-5up"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThX-QD-xt3">
                                 <rect key="frame" x="20" y="463" width="160" height="60"/>
@@ -530,6 +542,9 @@
                                     <constraint firstAttribute="height" constant="60" id="aNn-S7-Mky"/>
                                 </constraints>
                                 <state key="normal" title="Cancelar"/>
+                                <connections>
+                                    <action selector="cancelarBtn:" destination="z8A-pz-tG4" eventType="touchUpInside" id="tFq-3Q-cqA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -561,6 +576,12 @@
                             <constraint firstItem="R1f-vt-o55" firstAttribute="top" secondItem="tfh-Ap-Iqz" secondAttribute="bottom" constant="420" id="r2J-QW-nkv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageViewCor" destination="oxh-Yg-Gji" id="Ecy-y6-nms"/>
+                        <outlet property="sliderAzul" destination="mVX-b0-Qro" id="nDi-rH-0bg"/>
+                        <outlet property="sliderVerde" destination="Bx2-9G-5H6" id="gSS-ag-XfJ"/>
+                        <outlet property="sliderVermelho" destination="HSL-V3-e5y" id="gPv-Fa-qJ8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjz-UH-sI2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
