@@ -18,14 +18,9 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
     
     let sectionCores : Int = 1
     
-    let corPonteirodasHoras : Int = 0
-    let corPonteirodosMinutos : Int = 1
-    let corPonteirodosSegundos : Int = 2
-    let corFundodoRelogio : Int = 3
-    let corFundodaTela : Int = 4
-    let corBordaeDigitosdoRelogio : Int = 5
-    
-    let arrCores : [String] = ["Cor para o Ponteiro das Horas","Cor para o Ponteiro dos Minutos","Cor para o Ponteiro dos Segundos","Cor do Fundo do Relógio","Cor do Fundo da Tela","Cor da Borda e Dígitos do Relógio"]
+    let arrCores : [String] = ["Cor para o Ponteiro das Horas","Cor para o Ponteiro dos Minutos","Cor para o Ponteiro dos Segundos","Cor do Fundo do Relógio","Cor do Fundo da Tela","Cor da Borda e Dígitos do Relógio","Círculo do Centro do Relógio"]
+    let chavesCores : [String] = ["corPontHoras","corPontMinutos","corPontSegundos","corFundoRelogio","corFundoTela","corBordaDigitosRelogio","corCirculoCentroRelogio"]
+    let defautCores : [UIColor] = [UIColor.blackColor(),UIColor.whiteColor(),UIColor.redColor(),UIColor.grayColor(),UIColor.blackColor(),UIColor.whiteColor()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,27 +50,11 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
         let section = indexPath.section
         if section == sectionCores {
             let linha = indexPath.row
-            //prepareForSegue(<#T##segue: UIStoryboardSegue##UIStoryboardSegue#>, sender: self)
-            
-            
-            switch linha {
-            case corPonteirodasHoras:
-                let a = 1+1
-            case corPonteirodosMinutos:
-                let a = 1+1
-            case corPonteirodosSegundos:
-                let a = 1+1
-            case corFundodoRelogio:
-                let a = 1+1
-            case corFundodaTela:
-                let a = 1+1
-            case corBordaeDigitosdoRelogio:
-                let a = 1+1
-            default:
-                let a = 1+1
-                
-            }
-            
+            let vc : ChangeColorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("viewChangeColor") as! ChangeColorViewController
+            vc.titulo = arrCores[linha]
+            vc.chave = chavesCores[linha]
+            vc.defaultCor = defautCores[linha]
+            self.showViewController(vc, sender: vc)
         }
     }
     

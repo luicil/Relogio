@@ -15,10 +15,12 @@ class ChangeColorViewController: UIViewController {
     @IBOutlet weak var sliderAzul: UISlider!
     @IBOutlet weak var sliderVerde: UISlider!
     @IBOutlet weak var imageViewCor: UIImageView!
+    @IBOutlet weak var labelTitulo: UILabel!
     
     var titulo : String?
     var chave : String?
     var cor : UIColor?
+    var defaultCor : UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +28,28 @@ class ChangeColorViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         imageViewCor.layer.borderWidth = 1.0
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
         var red : CGFloat = 0.0
         var green : CGFloat = 0.0
         var blue : CGFloat = 0.0
         var alpha : CGFloat = 1.0
+        
+        let cPers = RelogioPersistance()
+
+        cor = cPers.loadCor(chave!,defaultColor: defaultCor!)
+        
+        
         cor?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        self.labelTitulo.text = self.titulo
+        self.sliderAzul.setValue(Float(blue) * 255, animated: true)
+        self.sliderVerde.setValue(Float(green) * 255, animated: true)
+        self.sliderVermelho.setValue(Float(red) * 255, animated: true)
+        self.ChangeColor()
         
     }
 
@@ -74,9 +93,13 @@ class ChangeColorViewController: UIViewController {
     }
     
     @IBAction func cancelarBtn(sender: UIButton) {
+        performSegueWithIdentifier("mainView", sender: self)
     }
     
     @IBAction func confirmarBtn(sender: UIButton) {
+        let cPers = RelogioPersistance()
+        cPers.saveCor(chave!, cor: self.imageViewCor.backgroundColor!)
+        performSegueWithIdentifier("mainView", sender: self)
     }
     
 

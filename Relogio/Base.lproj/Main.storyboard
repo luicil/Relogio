@@ -61,7 +61,7 @@
         <!--Configurações-->
         <scene sceneID="U2y-5V-UCZ">
             <objects>
-                <tableViewController title="Configurações" id="DRp-5v-urr" customClass="ConfigTableViewController" customModule="Relogio" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="mainView" title="Configurações" id="DRp-5v-urr" customClass="ConfigTableViewController" customModule="Relogio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="dxC-Zh-h4d" userLabel="configTableView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -320,12 +320,34 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="FNY-yf-oR2">
+                                        <rect key="frame" x="0.0" y="520.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FNY-yf-oR2" id="7ir-3K-7AP">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Círculo do Centro do Relógio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hP6-fa-Fqy">
+                                                    <rect key="frame" x="8" y="0.0" width="551" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hP6-fa-Fqy" firstAttribute="top" secondItem="7ir-3K-7AP" secondAttribute="topMargin" constant="-8" id="KKE-hk-OZQ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hP6-fa-Fqy" secondAttribute="bottom" constant="-0.5" id="TSG-VF-sjA"/>
+                                                <constraint firstItem="hP6-fa-Fqy" firstAttribute="leading" secondItem="7ir-3K-7AP" secondAttribute="leadingMargin" id="WPd-3t-eTt"/>
+                                                <constraint firstItem="hP6-fa-Fqy" firstAttribute="trailing" secondItem="7ir-3K-7AP" secondAttribute="trailingMargin" id="stW-Kf-10f"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="ALTERAR IMAGEM DO FUNDO DA TELA" id="YVT-42-EGN">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="259" id="CnQ-N1-qrc" userLabel="ImagemFundoTela">
-                                        <rect key="frame" x="0.0" y="570.5" width="600" height="259"/>
+                                        <rect key="frame" x="0.0" y="614.5" width="600" height="259"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CnQ-N1-qrc" id="E68-2n-Y1n">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="258.5"/>
@@ -475,8 +497,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HSL-V3-e5y">
-                                <rect key="frame" x="198" y="126" width="204" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="HSL-V3-e5y">
+                                <rect key="frame" x="198" y="127" width="204" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="VTi-P6-4z3"/>
                                 </constraints>
@@ -484,13 +506,13 @@
                                     <action selector="sliderVermelhoAct:" destination="z8A-pz-tG4" eventType="valueChanged" id="RFX-fd-eIG"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Azul" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4z-c5-eMC">
-                                <rect key="frame" x="283" y="194" width="33.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Azul" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4z-c5-eMC">
+                                <rect key="frame" x="283" y="195" width="33.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mVX-b0-Qro">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="mVX-b0-Qro">
                                 <rect key="frame" x="198" y="223" width="204" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Q2r-P6-UDQ"/>
@@ -500,12 +522,12 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Verde" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HA-th-MmE">
-                                <rect key="frame" x="277" y="299" width="45" height="21"/>
+                                <rect key="frame" x="277" y="296" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Bx2-9G-5H6">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="Bx2-9G-5H6">
                                 <rect key="frame" x="198" y="327" width="204" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="cxI-ZY-iP8"/>
@@ -516,10 +538,10 @@
                                 </connections>
                             </slider>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oxh-Yg-Gji">
-                                <rect key="frame" x="200" y="389" width="200" height="38"/>
+                                <rect key="frame" x="200" y="389" width="200" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="FGk-f2-Wh0"/>
-                                    <constraint firstAttribute="height" constant="38" id="o3n-Ls-FtC"/>
+                                    <constraint firstAttribute="height" constant="60" id="o3n-Ls-FtC"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1f-vt-o55">
@@ -552,11 +574,11 @@
                             <constraint firstItem="RNe-c8-Rsf" firstAttribute="top" secondItem="tfh-Ap-Iqz" secondAttribute="bottom" constant="56" id="2vH-5I-DrC"/>
                             <constraint firstItem="oxh-Yg-Gji" firstAttribute="centerX" secondItem="UBD-FX-Ckn" secondAttribute="centerX" id="7bm-7S-3j2"/>
                             <constraint firstItem="HSL-V3-e5y" firstAttribute="top" secondItem="RNe-c8-Rsf" secondAttribute="bottom" constant="7.5" id="7qV-DI-5KI"/>
-                            <constraint firstItem="8HA-th-MmE" firstAttribute="top" secondItem="mVX-b0-Qro" secondAttribute="bottom" constant="46" id="9xg-OD-dqj"/>
+                            <constraint firstItem="8HA-th-MmE" firstAttribute="top" secondItem="mVX-b0-Qro" secondAttribute="bottom" constant="43" id="9xg-OD-dqj"/>
                             <constraint firstItem="oxh-Yg-Gji" firstAttribute="top" secondItem="Bx2-9G-5H6" secondAttribute="bottom" constant="32" id="BEs-OZ-D31"/>
                             <constraint firstItem="h4z-c5-eMC" firstAttribute="centerX" secondItem="UBD-FX-Ckn" secondAttribute="centerX" id="EbW-6z-0WJ"/>
-                            <constraint firstItem="Bx2-9G-5H6" firstAttribute="top" secondItem="8HA-th-MmE" secondAttribute="bottom" constant="7.5" id="F2h-8P-DZ5"/>
-                            <constraint firstItem="Bx2-9G-5H6" firstAttribute="top" secondItem="8HA-th-MmE" secondAttribute="bottom" constant="7.5" id="IFT-fu-Y7p"/>
+                            <constraint firstItem="Bx2-9G-5H6" firstAttribute="top" secondItem="8HA-th-MmE" secondAttribute="bottom" constant="10" id="F2h-8P-DZ5"/>
+                            <constraint firstItem="Bx2-9G-5H6" firstAttribute="top" secondItem="8HA-th-MmE" secondAttribute="bottom" constant="10" id="IFT-fu-Y7p"/>
                             <constraint firstItem="8HA-th-MmE" firstAttribute="centerX" secondItem="UBD-FX-Ckn" secondAttribute="centerX" id="LBT-pj-9Es"/>
                             <constraint firstItem="HSL-V3-e5y" firstAttribute="centerX" secondItem="UBD-FX-Ckn" secondAttribute="centerX" id="MPj-QH-iVY"/>
                             <constraint firstItem="RNe-c8-Rsf" firstAttribute="centerX" secondItem="UBD-FX-Ckn" secondAttribute="centerX" id="MuH-Tp-aHI"/>
@@ -564,13 +586,13 @@
                             <constraint firstItem="mVX-b0-Qro" firstAttribute="top" secondItem="h4z-c5-eMC" secondAttribute="bottom" constant="7.5" id="WDj-xm-UkJ"/>
                             <constraint firstItem="ThX-QD-xt3" firstAttribute="leading" secondItem="UBD-FX-Ckn" secondAttribute="leadingMargin" id="Zes-Hu-Vgx"/>
                             <constraint firstItem="oxh-Yg-Gji" firstAttribute="top" secondItem="Bx2-9G-5H6" secondAttribute="bottom" constant="32" id="f9N-CU-jMS"/>
-                            <constraint firstItem="Bx2-9G-5H6" firstAttribute="top" secondItem="8HA-th-MmE" secondAttribute="bottom" constant="7.5" id="g7y-32-QzJ"/>
+                            <constraint firstItem="Bx2-9G-5H6" firstAttribute="top" secondItem="8HA-th-MmE" secondAttribute="bottom" constant="10" id="g7y-32-QzJ"/>
                             <constraint firstItem="tfh-Ap-Iqz" firstAttribute="centerX" secondItem="UBD-FX-Ckn" secondAttribute="centerX" id="j3V-j7-XRE"/>
                             <constraint firstItem="ThX-QD-xt3" firstAttribute="top" secondItem="tfh-Ap-Iqz" secondAttribute="bottom" constant="420" id="kDT-e7-7te"/>
                             <constraint firstItem="mVX-b0-Qro" firstAttribute="top" secondItem="h4z-c5-eMC" secondAttribute="bottom" constant="7.5" id="lIA-Os-ETu"/>
                             <constraint firstItem="R1f-vt-o55" firstAttribute="trailing" secondItem="UBD-FX-Ckn" secondAttribute="trailingMargin" id="lK6-DT-Gzs"/>
                             <constraint firstItem="h4z-c5-eMC" firstAttribute="top" secondItem="HSL-V3-e5y" secondAttribute="bottom" constant="38" id="mt5-GJ-kt3"/>
-                            <constraint firstItem="hQv-wL-6Mw" firstAttribute="top" secondItem="oxh-Yg-Gji" secondAttribute="bottom" constant="173" id="oCU-ni-tCI"/>
+                            <constraint firstItem="hQv-wL-6Mw" firstAttribute="top" secondItem="oxh-Yg-Gji" secondAttribute="bottom" constant="151" id="oCU-ni-tCI"/>
                             <constraint firstItem="Bx2-9G-5H6" firstAttribute="centerX" secondItem="UBD-FX-Ckn" secondAttribute="centerX" id="pdU-QC-udW"/>
                             <constraint firstItem="tfh-Ap-Iqz" firstAttribute="top" secondItem="1Zz-k4-nTW" secondAttribute="bottom" id="qy0-wK-hcH"/>
                             <constraint firstItem="R1f-vt-o55" firstAttribute="top" secondItem="tfh-Ap-Iqz" secondAttribute="bottom" constant="420" id="r2J-QW-nkv"/>
@@ -578,9 +600,11 @@
                     </view>
                     <connections>
                         <outlet property="imageViewCor" destination="oxh-Yg-Gji" id="Ecy-y6-nms"/>
+                        <outlet property="labelTitulo" destination="tfh-Ap-Iqz" id="8zU-Oe-7pc"/>
                         <outlet property="sliderAzul" destination="mVX-b0-Qro" id="nDi-rH-0bg"/>
                         <outlet property="sliderVerde" destination="Bx2-9G-5H6" id="gSS-ag-XfJ"/>
                         <outlet property="sliderVermelho" destination="HSL-V3-e5y" id="gPv-Fa-qJ8"/>
+                        <segue destination="DRp-5v-urr" kind="show" identifier="mainView" id="Sjk-iG-3AK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjz-UH-sI2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -699,4 +723,7 @@
         <image name="relogio-2" width="122" height="123"/>
         <image name="relogio-4" width="122" height="123"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Sjk-iG-3AK"/>
+    </inferredMetricsTieBreakers>
 </document>

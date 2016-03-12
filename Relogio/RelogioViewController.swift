@@ -18,34 +18,33 @@ class RelogioViewController: UIViewController {
         self.imageViewRelogio.image = cPers.loadImage()
         self.imageViewRelogio.alpha = CGFloat(cPers.loadTransparencia())
         
-        
-        
         let endAngle = CGFloat(2*M_PI)
         
-            if let viewWithTag = self.view.viewWithTag(100){
-                if let subLayers = self.view.layer.sublayers{
-                    for layer in subLayers{
-                        var nome : String = ""
-                        if layer.name != nil {
-                           nome = layer.name!
-                        }
-                      
-                        switch nome{
-                            case "horas", "minutos", "segundos", "circulo":
-                                layer.removeFromSuperlayer()
-                        default:break
-                        }
+        if let viewWithTag = self.view.viewWithTag(100){
+            if let subLayers = self.view.layer.sublayers{
+                for layer in subLayers{
+                    var nome : String = ""
+                    if layer.name != nil {
+                        nome = layer.name!
+                    }
+                    
+                    switch nome{
+                    case "horas", "minutos", "segundos", "circulo":
+                        layer.removeFromSuperlayer()
+                    default:break
                     }
                 }
-                self.view.bringSubviewToFront(viewWithTag)
-                viewWithTag.removeFromSuperview()
-                
             }
+            self.view.bringSubviewToFront(viewWithTag)
+            viewWithTag.removeFromSuperview()
             
+        }
         
         let newView = View(frame: CGRect(x: 0, y: 0, width: CGRectGetWidth(self.view.frame), height: CGRectGetHeight(self.view.frame)))
         
         newView.tag = 100
+        
+        newView.backgroundColor = cPers.loadCor("corFundoTela", defaultColor: UIColor.blackColor())
         
         self.view.addSubview(newView)
         self.view.sendSubviewToBack(newView)
@@ -62,7 +61,10 @@ class RelogioViewController: UIViewController {
         hourLayer.path = path
         hourLayer.lineWidth = 4
         hourLayer.lineCap = kCALineCapRound
-        hourLayer.strokeColor = UIColor.blackColor().CGColor
+        
+        //hourLayer.strokeColor = UIColor.blackColor().CGColor
+        
+        hourLayer.strokeColor = cPers.loadCor("corPontHoras", defaultColor: UIColor.blackColor()).CGColor
         
         // see for rasterization advice http://stackoverflow.com/questions/24316705/how-to-draw-a-smooth-circle-with-cashapelayer-and-uibezierpath
         hourLayer.rasterizationScale = UIScreen.mainScreen().scale;
@@ -82,7 +84,10 @@ class RelogioViewController: UIViewController {
         minuteLayer.path = minutePath
         minuteLayer.lineWidth = 3
         minuteLayer.lineCap = kCALineCapRound
-        minuteLayer.strokeColor = UIColor.whiteColor().CGColor
+        
+        //minuteLayer.strokeColor = UIColor.whiteColor().CGColor
+        
+        minuteLayer.strokeColor = cPers.loadCor("corPontMinutos", defaultColor: UIColor.whiteColor()).CGColor
         
         minuteLayer.rasterizationScale = UIScreen.mainScreen().scale;
         minuteLayer.shouldRasterize = true
@@ -98,11 +103,13 @@ class RelogioViewController: UIViewController {
         CGPathMoveToPoint(secondPath, nil, CGRectGetMidX(newView.frame), CGRectGetMidY(newView.frame))
         CGPathAddLineToPoint(secondPath, nil, time.s.x, time.s.y)
         
-        
         secondLayer.path = secondPath
         secondLayer.lineWidth = 1
         secondLayer.lineCap = kCALineCapRound
-        secondLayer.strokeColor = UIColor.redColor().CGColor
+        
+        //secondLayer.strokeColor = UIColor.redColor().CGColor
+        
+        secondLayer.strokeColor = cPers.loadCor("corPontSegundos", defaultColor: UIColor.redColor()).CGColor
         
         secondLayer.rasterizationScale = UIScreen.mainScreen().scale;
         
@@ -115,19 +122,20 @@ class RelogioViewController: UIViewController {
         let circle = UIBezierPath(arcCenter: CGPoint(x:CGRectGetMidX(newView.frame),y:CGRectGetMidY(newView.frame)), radius: 4.5, startAngle: 0, endAngle: endAngle, clockwise: true)
         // thanks to http://stackoverflow.com/a/19395006/1694526 for how to fill the color
         centerPiece.path = circle.CGPath
-        centerPiece.fillColor = UIColor.whiteColor().CGColor
+        
+        //centerPiece.fillColor = UIColor.whiteColor().CGColor
+        
+        centerPiece.fillColor = cPers.loadCor("corCirculoCentroRelogio", defaultColor: UIColor.whiteColor()).CGColor
+        
         centerPiece.name="circulo"
         self.view.layer.addSublayer(centerPiece)
 
     }
     
-
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.startClock()
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,13 +151,11 @@ class RelogioViewController: UIViewController {
         
     }
     
-    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         self.startClock()
     }
-    
 
-    
 }
 
 
@@ -337,14 +343,20 @@ class View: UIView {
         
         let endAngle = CGFloat(2*M_PI)
         
+        let cPers = RelogioPersistance()
+        
         // add the circle to the context
         CGContextAddArc(ctx, CGRectGetMidX(rect), CGRectGetMidY(rect), rad, 0, endAngle, 1)
         
         // set fill color
-        CGContextSetFillColorWithColor(ctx,UIColor.grayColor().CGColor)
+        //CGContextSetFillColorWithColor(ctx,UIColor.grayColor().CGColor)
+        
+        CGContextSetFillColorWithColor(ctx,cPers.loadCor("corFundoRelogio", defaultColor: UIColor.grayColor()).CGColor)
         
         // set stroke color
-        CGContextSetStrokeColorWithColor(ctx,UIColor.whiteColor().CGColor)
+        //CGContextSetStrokeColorWithColor(ctx,UIColor.whiteColor().CGColor)
+        
+        CGContextSetStrokeColorWithColor(ctx,cPers.loadCor("corBordaDigitosRelogio", defaultColor: UIColor.whiteColor()).CGColor)
         
         // set line width
         CGContextSetLineWidth(ctx, 4.0)
@@ -352,21 +364,14 @@ class View: UIView {
         
         // draw the path
         
-        
-        
         // CGContextDrawPath(ctx, CGPathFillStroke);
         
         CGContextDrawPath(ctx, .FillStroke);
         
-        
         secondMarkers(ctx: ctx!, x: CGRectGetMidX(rect), y: CGRectGetMidY(rect), radius: rad, sides: 60, color: UIColor.whiteColor())
 
-        
-        let cPers = RelogioPersistance()
         let sides : Int = cPers.loadDigRelogio()
         let nDig : NumberOfNumerals
-        
-        
         
         switch sides{
         case 1:
@@ -379,12 +384,9 @@ class View: UIView {
             nDig = .twelve
         }
         
-        
         //drawText(rect:rect, ctx: ctx!, x: CGRectGetMidX(rect), y: CGRectGetMidY(rect), radius: rad, sides: .twelve, color: UIColor.whiteColor())
         
         drawText(rect:rect, ctx: ctx!, x: CGRectGetMidX(rect), y: CGRectGetMidY(rect), radius: rad, sides: nDig, color: UIColor.whiteColor())
-
-        
         
     }
     
