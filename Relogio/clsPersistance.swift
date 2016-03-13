@@ -73,17 +73,19 @@ class RelogioPersistance {
     }
     
     func loadCor(chave : String, defaultColor : UIColor) -> UIColor {
-        let cor : AnyObject? = defaults.objectForKey(chave)
+        //let cor : AnyObject? = defaults.objectForKey(chave)
+        
+        let cor = defaults.dataForKey(chave)
+        
         if cor != nil {
-            return cor as! UIColor
+            return NSKeyedUnarchiver.unarchiveObjectWithData(cor!) as! UIColor
         }
         return defaultColor
 
     }
     
     func saveCor(chave : String, cor : UIColor) {
-        let lCor : AnyObject? = cor
-        defaults.setObject(lCor, forKey: chave)
+        defaults.setObject(NSKeyedArchiver.archivedDataWithRootObject(cor), forKey: chave)
         defaults.synchronize()
     }
     

@@ -45,6 +45,8 @@ class ChangeColorViewController: UIViewController {
         
         
         cor?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        
         self.labelTitulo.text = self.titulo
         self.sliderAzul.setValue(Float(blue) * 255, animated: true)
         self.sliderVerde.setValue(Float(green) * 255, animated: true)
@@ -93,13 +95,14 @@ class ChangeColorViewController: UIViewController {
     }
     
     @IBAction func cancelarBtn(sender: UIButton) {
-        performSegueWithIdentifier("mainView", sender: self)
+        //performSegueWithIdentifier("mainView", sender: self)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     @IBAction func confirmarBtn(sender: UIButton) {
         let cPers = RelogioPersistance()
         cPers.saveCor(chave!, cor: self.imageViewCor.backgroundColor!)
-        performSegueWithIdentifier("mainView", sender: self)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
 

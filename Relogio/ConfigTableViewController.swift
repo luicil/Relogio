@@ -20,7 +20,7 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
     
     let arrCores : [String] = ["Cor para o Ponteiro das Horas","Cor para o Ponteiro dos Minutos","Cor para o Ponteiro dos Segundos","Cor do Fundo do Relógio","Cor do Fundo da Tela","Cor da Borda e Dígitos do Relógio","Círculo do Centro do Relógio"]
     let chavesCores : [String] = ["corPontHoras","corPontMinutos","corPontSegundos","corFundoRelogio","corFundoTela","corBordaDigitosRelogio","corCirculoCentroRelogio"]
-    let defautCores : [UIColor] = [UIColor.blackColor(),UIColor.whiteColor(),UIColor.redColor(),UIColor.grayColor(),UIColor.blackColor(),UIColor.whiteColor()]
+    let defautCores : [UIColor] = [UIColor.blackColor(),UIColor.whiteColor(),UIColor.redColor(),UIColor.grayColor(),UIColor.blackColor(),UIColor.whiteColor(),UIColor.whiteColor()]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -123,7 +123,7 @@ class RelogioViewController: UIViewController {
         // thanks to http://stackoverflow.com/a/19395006/1694526 for how to fill the color
         centerPiece.path = circle.CGPath
         
-        //centerPiece.fillColor = UIColor.whiteColor().CGColor
+        //centerPiece.fillColor = UIColor.blueColor().CGColor
         
         centerPiece.fillColor = cPers.loadCor("corCirculoCentroRelogio", defaultColor: UIColor.whiteColor()).CGColor
         
