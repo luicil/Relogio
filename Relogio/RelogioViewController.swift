@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class RelogioViewController: UIViewController {
     
@@ -153,6 +154,14 @@ class RelogioViewController: UIViewController {
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        if UIDevice.currentDevice().orientation.isLandscape.boolValue {
+             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        }
+    }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         self.startClock()
     }
 
@@ -296,7 +305,12 @@ func drawText(rect rect:CGRect, ctx:CGContextRef, x:CGFloat, y:CGFloat, radius:C
             // Font name must be written exactly the same as the system stores it (some names are hyphenated, some aren't) and must exist on the user's device. Otherwise there will be a crash. (In real use checks and fallbacks would be created.) For a list of iOS 7 fonts see here: http://support.apple.com/en-us/ht5878
             let aFont = UIFont(name: "DamascusBold", size: radius/5)
             // create a dictionary of attributes to be applied to the string
-            let attr:CFDictionaryRef = [NSFontAttributeName:aFont!,NSForegroundColorAttributeName:UIColor.whiteColor()]
+            
+            //let attr:CFDictionaryRef = [NSFontAttributeName:aFont!,NSForegroundColorAttributeName:UIColor.whiteColor()]
+            
+            let cPers = RelogioPersistance()
+            let attr:CFDictionaryRef = [NSFontAttributeName:aFont!,NSForegroundColorAttributeName:(cPers.loadCor("corBordaDigitosRelogio", defaultColor: UIColor.whiteColor()))]
+            
             // create the attributed string
             let str = String(p.index*multiplier)
             let text = CFAttributedStringCreate(nil, str, attr)
@@ -368,7 +382,9 @@ class View: UIView {
         
         CGContextDrawPath(ctx, .FillStroke);
         
-        secondMarkers(ctx: ctx!, x: CGRectGetMidX(rect), y: CGRectGetMidY(rect), radius: rad, sides: 60, color: UIColor.whiteColor())
+        //secondMarkers(ctx: ctx!, x: CGRectGetMidX(rect), y: CGRectGetMidY(rect), radius: rad, sides: 60, color: UIColor.whiteColor())
+        
+        secondMarkers(ctx: ctx!, x: CGRectGetMidX(rect), y: CGRectGetMidY(rect), radius: rad, sides: 60, color: (cPers.loadCor("corBordaDigitosRelogio", defaultColor: UIColor.whiteColor())))
 
         let sides : Int = cPers.loadDigRelogio()
         let nDig : NumberOfNumerals
