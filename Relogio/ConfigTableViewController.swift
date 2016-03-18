@@ -145,10 +145,21 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
     }
     
     @IBAction func deleteImageBtn(sender: UIButton) {
-        imageView.image = nil
-        self.deleteImage()
-        self.sliderTransparencia.setValue(1.0, animated: true)
-        self.changeAlpha()
+        
+        let refreshAlert = UIAlertController(title: "Configurações", message: "Deseja excluir a imagem ?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Sim", style: .Default, handler: { (action: UIAlertAction!) in
+            self.imageView.image = nil
+            self.deleteImage()
+            self.sliderTransparencia.setValue(1.0, animated: true)
+            self.changeAlpha()
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Não", style: .Default, handler: { (action: UIAlertAction!) in
+            //não faz nada
+        }))
+        
+        presentViewController(refreshAlert, animated: true, completion: nil)
     }
     
     @IBAction func sliderTransparenciaAct(sender: UISlider) {

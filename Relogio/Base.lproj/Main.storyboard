@@ -24,10 +24,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="hU7-er-fDl" secondAttribute="trailing" id="B5C-B6-7zQ"/>
-                            <constraint firstItem="hU7-er-fDl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PZf-2C-zV5"/>
-                            <constraint firstItem="hU7-er-fDl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Sao-Qi-U2G"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hU7-er-fDl" secondAttribute="bottom" id="bxK-pg-ydu"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hU7-er-fDl" secondAttribute="bottom" id="D5i-mb-3de"/>
+                            <constraint firstItem="hU7-er-fDl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TGf-PO-KEz"/>
+                            <constraint firstItem="hU7-er-fDl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VLS-md-3tl"/>
+                            <constraint firstAttribute="trailing" secondItem="hU7-er-fDl" secondAttribute="trailing" id="yCF-md-0F8"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Relógio" image="Relogio" selectedImage="Relogio" id="ARG-gA-8b4"/>
@@ -630,7 +630,7 @@
                                 <rect key="frame" x="20" y="140" width="560" height="403"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CustomTableViewCell" id="HoZ-t1-tFT" customClass="CustomTableViewCell" customModule="Relogio" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CustomTableViewCell" id="HoZ-t1-tFT" customClass="CustomTableViewCell" customModule="Relogio" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HoZ-t1-tFT" id="WCh-CU-Zvg">
@@ -716,6 +716,6 @@
         <image name="relogio-4" width="122" height="123"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Sjk-iG-3AK"/>
+        <segue reference="t0M-xq-F67"/>
     </inferredMetricsTieBreakers>
 </document>

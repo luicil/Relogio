@@ -25,9 +25,12 @@ class FrasesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         checkForSavedData()
+        
+        
+        self.hidesBottomBarWhenPushed = true
+        self.navigationItem.hidesBackButton = true
 
     }
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
