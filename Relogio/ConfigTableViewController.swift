@@ -13,8 +13,14 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
     @IBOutlet weak var sliderRelogio: UISlider!
     @IBOutlet weak var sliderTransparencia: UISlider!
     @IBOutlet weak var imageView: UIImageView!
-
+    @IBOutlet weak var lblAtivNotifs: UILabel!
+    @IBOutlet weak var lblMinutosNotifs: UILabel!
+    @IBOutlet weak var stepperNotif: UIStepper!
+    @IBOutlet weak var switchNotifs: UISwitch!
     @IBOutlet weak var configTableView: UITableView!
+    
+    var minutosNotif : Int = 1
+    var switchNotif : Bool = false
     
     let sectionCores : Int = 1
     
@@ -34,7 +40,10 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
         self.sliderRelogio.setValue(Float(self.readnDig()), animated: true)
         self.loadImage()
         self.sliderTransparencia.setValue(self.loadTransparencia(), animated: true)
+        self.switchNotifs.setOn(switchNotif, animated: true)
         self.changeAlpha()
+        self.showMinutos()
+        self.showNotifs()
         
     }
 
@@ -43,7 +52,6 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
         // Dispose of any resources that can be recreated.
     }
     
-
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -115,6 +123,27 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
         self.saveTransparencia(self.sliderTransparencia.value)
     }
     
+    func showMinutos() {
+        if minutosNotif > 1 {
+            self.lblMinutosNotifs.text = "A cada \(minutosNotif) minutos"
+        } else {
+            self.lblMinutosNotifs.text = "A cada \(minutosNotif) minuto"
+        }
+        
+    }
+    
+    func showNotifs() {
+        if switchNotif {
+            self.lblAtivNotifs.text = "Desativar Notificações"
+            self.lblMinutosNotifs.enabled = true
+            self.stepperNotif.enabled = true
+        } else {
+            self.lblAtivNotifs.text = "Ativar Notificações"
+            self.lblMinutosNotifs.enabled = false
+            self.stepperNotif.enabled = false
+        }
+    }
+    
     @IBAction func gesture2Act(sender: UITapGestureRecognizer) {
         self.sliderRelogio.setValue(1, animated: true)
         self.savenDig(Int(self.sliderRelogio.value))
@@ -164,6 +193,16 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
     
     @IBAction func sliderTransparenciaAct(sender: UISlider) {
         self.changeAlpha()
+    }
+    
+    @IBAction func actSwitchAtivNotifs(sender: UISwitch) {
+        switchNotif = sender.on
+        self.showNotifs()
+    }
+    
+    @IBAction func actStepperMinutosNotif(sender: UIStepper) {
+        minutosNotif  = Int(sender.value)
+        self.showMinutos()
     }
     
 }

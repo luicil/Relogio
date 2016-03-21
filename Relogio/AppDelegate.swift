@@ -17,9 +17,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        application.registerUserNotificationSettings(UIUserNotificationSettings (forTypes: UIUserNotificationType.Alert, categories: nil))
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        
+//        let localNotification = UILocalNotification()
+//        localNotification.fireDate = NSDate(timeIntervalSinceNow: 5)
+//        localNotification.alertBody = "new Blog Posted at iOScreator.com"
+//        localNotification.timeZone = NSTimeZone.defaultTimeZone()
+//        localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+//        
+//        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         
         return true
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        
+        // recebe notificacoes
+        
+        application.applicationIconBadgeNumber = 0
     }
 
     func applicationWillResignActive(application: UIApplication) {
