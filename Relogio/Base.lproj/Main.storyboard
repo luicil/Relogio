@@ -30,7 +30,7 @@
                             <constraint firstAttribute="trailing" secondItem="hU7-er-fDl" secondAttribute="trailing" id="yCF-md-0F8"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Relógio" image="Relogio" selectedImage="Relogio" id="ARG-gA-8b4"/>
+                    <tabBarItem key="tabBarItem" tag="100" title="Relógio" image="Relogio" selectedImage="Relogio" id="ARG-gA-8b4"/>
                     <connections>
                         <outlet property="imageViewRelogio" destination="hU7-er-fDl" id="ezL-ww-j9u"/>
                     </connections>
