@@ -20,14 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         
-//        let localNotification = UILocalNotification()
-//        localNotification.fireDate = NSDate(timeIntervalSinceNow: 5)
-//        localNotification.alertBody = "new Blog Posted at iOScreator.com"
-//        localNotification.timeZone = NSTimeZone.defaultTimeZone()
-//        localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
-//        
-//        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-        
         return true
     }
     
@@ -36,6 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // recebe notificacoes
         
         application.applicationIconBadgeNumber = 0
+        
+        let ativNotif = AtivNotif()
+        ativNotif.ativaNotifs()
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {

@@ -13,6 +13,7 @@
 		3EAEBB711C79F162006DADAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBB701C79F162006DADAF /* Assets.xcassets */; };
 		3EAEBB741C79F162006DADAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBB721C79F162006DADAF /* LaunchScreen.storyboard */; };
 		3EB7F7C41C9236E70053F9D0 /* ChangeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB7F7C31C9236E70053F9D0 /* ChangeColorViewController.swift */; };
+		3EC89D3A1CA20B34002A31D2 /* clsAtivNotif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC89D391CA20B34002A31D2 /* clsAtivNotif.swift */; };
 		3EDD93E01C7A2DBF00625FAA /* RelogioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD93DF1C7A2DBF00625FAA /* RelogioViewController.swift */; };
 		3EDD93E21C7A2DCB00625FAA /* FrasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD93E11C7A2DCB00625FAA /* FrasesViewController.swift */; };
 		3EDD93E41C7A5DF800625FAA /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD93E31C7A5DF800625FAA /* CustomTableViewCell.swift */; };
@@ -28,6 +29,7 @@
 		3EAEBB731C79F162006DADAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EAEBB751C79F162006DADAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EB7F7C31C9236E70053F9D0 /* ChangeColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeColorViewController.swift; sourceTree = "<group>"; };
+		3EC89D391CA20B34002A31D2 /* clsAtivNotif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clsAtivNotif.swift; sourceTree = "<group>"; };
 		3EDD93DF1C7A2DBF00625FAA /* RelogioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelogioViewController.swift; sourceTree = "<group>"; };
 		3EDD93E11C7A2DCB00625FAA /* FrasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrasesViewController.swift; sourceTree = "<group>"; };
 		3EDD93E31C7A5DF800625FAA /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				3EE380021C86EDD300169E48 /* clsPersistance.swift */,
 				3E9BDEFF1C90D51600E64598 /* ConfigTableViewController.swift */,
 				3EB7F7C31C9236E70053F9D0 /* ChangeColorViewController.swift */,
+				3EC89D391CA20B34002A31D2 /* clsAtivNotif.swift */,
 			);
 			path = Relogio;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				3EE380031C86EDD300169E48 /* clsPersistance.swift in Sources */,
 				3EDD93E21C7A2DCB00625FAA /* FrasesViewController.swift in Sources */,
 				3EDD93E41C7A5DF800625FAA /* CustomTableViewCell.swift in Sources */,
+				3EC89D3A1CA20B34002A31D2 /* clsAtivNotif.swift in Sources */,
 				3EB7F7C41C9236E70053F9D0 /* ChangeColorViewController.swift in Sources */,
 				3EDD93E01C7A2DBF00625FAA /* RelogioViewController.swift in Sources */,
 				3EAEBB6A1C79F162006DADAF /* AppDelegate.swift in Sources */,

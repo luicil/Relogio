@@ -89,5 +89,26 @@ class RelogioPersistance {
         defaults.synchronize()
     }
     
+    func loadSwitchNotif() -> Bool {
+        return defaults.boolForKey("switchNotif")
+    }
+    
+    func saveSwitchNotif(on : Bool) {
+        defaults.setBool(on, forKey: "switchNotif")
+        defaults.synchronize()
+    }
+    
+    func loadMinutosNotif() -> Int {
+        var min : Int = defaults.integerForKey("minutosNotif")
+        if min == 0 {
+            min = 1
+        }
+        return min
+    }
+    
+    func saveMinutosNotif(minutos : Int) {
+        defaults.setInteger(minutos, forKey: "minutosNotif")
+        defaults.synchronize()
+    }
     
 }

@@ -36,7 +36,9 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+        let cPers = RelogioPersistance()
+        switchNotif = cPers.loadSwitchNotif()
+        minutosNotif = cPers.loadMinutosNotif()
         self.sliderRelogio.setValue(Float(self.readnDig()), animated: true)
         self.loadImage()
         self.sliderTransparencia.setValue(self.loadTransparencia(), animated: true)
@@ -133,14 +135,17 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
     }
     
     func showNotifs() {
+        let cativNotif = AtivNotif()
         if switchNotif {
             self.lblAtivNotifs.text = "Desativar Notificações"
             self.lblMinutosNotifs.enabled = true
             self.stepperNotif.enabled = true
+            cativNotif.ativaNotifs()
         } else {
             self.lblAtivNotifs.text = "Ativar Notificações"
             self.lblMinutosNotifs.enabled = false
             self.stepperNotif.enabled = false
+            cativNotif.desativNotifs()
         }
     }
     
@@ -197,12 +202,21 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
     
     @IBAction func actSwitchAtivNotifs(sender: UISwitch) {
         switchNotif = sender.on
+        let cPers = RelogioPersistance()
+        cPers.saveSwitchNotif(switchNotif)
         self.showNotifs()
     }
     
     @IBAction func actStepperMinutosNotif(sender: UIStepper) {
         minutosNotif  = Int(sender.value)
+        let cPers = RelogioPersistance()
+        cPers.saveMinutosNotif(minutosNotif)
         self.showMinutos()
+        let cativNotif = AtivNotif()
+        cativNotif.ativaNotifs()
+        
+        
+        
     }
     
 }
