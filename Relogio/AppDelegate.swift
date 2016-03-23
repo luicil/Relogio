@@ -17,21 +17,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        let notificationActionOk :UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+        notificationActionOk.identifier = "ACCEPT_IDENTIFIER"
+        notificationActionOk.title = "Ok"
+        notificationActionOk.destructive = false
+        notificationActionOk.authenticationRequired = false
+        notificationActionOk.activationMode = UIUserNotificationActivationMode.Background
+        
+        let notificationActionCancel :UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+        notificationActionCancel.identifier = "NOT_NOW_IDENTIFIER"
+        notificationActionCancel.title = "Cancelar"
+        notificationActionCancel.destructive = true
+        notificationActionCancel.authenticationRequired = false
+        notificationActionCancel.activationMode = UIUserNotificationActivationMode.Background
+        
+        let notificationCategory:UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
+        notificationCategory.identifier = "INVITE_CATEGORY"
+        notificationCategory .setActions([notificationActionOk, notificationActionCancel], forContext: UIUserNotificationActionContext.Default)
+        notificationCategory .setActions([notificationActionOk, notificationActionCancel], forContext: UIUserNotificationActionContext.Minimal)
+        
+        //let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge], categories: nil)
+        let categories: Set = Set(arrayLiteral: notificationCategory)
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: categories)
+        
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         
         return true
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        
-        // recebe notificacoes
-        
         application.applicationIconBadgeNumber = 0
+        let cAtivN = AtivNotif()
+        cAtivN.ativaNotifs()
         
-        let ativNotif = AtivNotif()
-        ativNotif.ativaNotifs()
-        
+    }
+    
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+        let x = 1 + 1
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -46,6 +68,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        if application.applicationIconBadgeNumber > 0 {
+            for Notif : UILocalNotification in application.scheduledLocalNotifications! {
+                
+            }
+        }
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
