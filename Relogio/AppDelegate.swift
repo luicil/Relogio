@@ -16,32 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        let notificationActionOk :UIMutableUserNotificationAction = UIMutableUserNotificationAction()
-        notificationActionOk.identifier = "ACCEPT_IDENTIFIER"
-        notificationActionOk.title = "Ok"
-        notificationActionOk.destructive = false
-        notificationActionOk.authenticationRequired = false
-        notificationActionOk.activationMode = UIUserNotificationActivationMode.Background
-        
-        let notificationActionCancel :UIMutableUserNotificationAction = UIMutableUserNotificationAction()
-        notificationActionCancel.identifier = "NOT_NOW_IDENTIFIER"
-        notificationActionCancel.title = "Cancelar"
-        notificationActionCancel.destructive = true
-        notificationActionCancel.authenticationRequired = false
-        notificationActionCancel.activationMode = UIUserNotificationActivationMode.Background
-        
-        let notificationCategory:UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
-        notificationCategory.identifier = "INVITE_CATEGORY"
-        notificationCategory .setActions([notificationActionOk, notificationActionCancel], forContext: UIUserNotificationActionContext.Default)
-        notificationCategory .setActions([notificationActionOk, notificationActionCancel], forContext: UIUserNotificationActionContext.Minimal)
-        
-        //let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge], categories: nil)
-        let categories: Set = Set(arrayLiteral: notificationCategory)
-        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: categories)
-        
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
-        
+        let cAtivN = AtivNotif()
+        cAtivN.initNotifs()
         return true
     }
     
@@ -53,7 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
-        let x = 1 + 1
+        if notification.category == "INVITE_CATEGORY" {
+            let id = identifier
+        
+        }
+        application.applicationIconBadgeNumber = 0
+        let cAtivN = AtivNotif()
+        cAtivN.ativaNotifs()
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -72,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             for Notif : UILocalNotification in application.scheduledLocalNotifications! {
                 
             }
+
         }
     }
 

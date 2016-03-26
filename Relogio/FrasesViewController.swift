@@ -59,7 +59,7 @@ class FrasesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomTableViewCell", forIndexPath: indexPath) as! CustomTableViewCell
         cell.CustomLabel.text = tableData[indexPath.row]
         cell.excBtn.tag = indexPath.row
-        cell.excBtn.addTarget(self, action: "excBtn:", forControlEvents: .TouchUpInside)
+        cell.excBtn.addTarget(self, action: #selector(FrasesViewController.excBtn(_:)), forControlEvents: .TouchUpInside)
         return cell
     }
     
@@ -83,6 +83,11 @@ class FrasesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return false
     }
     
+    func retnData() -> Int {
+        let cPers = RelogioPersistance()
+        return cPers.loadNFrases()
+    }
+    
     @IBAction func btnIncuir(sender: AnyObject) {
         if txtField.text != "" {
             tableData.append(txtField.text!)
@@ -94,21 +99,39 @@ class FrasesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func excBtn(sender: UIButton) {
-        
-        let refreshAlert = UIAlertController(title: "Frases Motivacionais", message: "Deseja excluir a frase motivacional ?", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        refreshAlert.addAction(UIAlertAction(title: "Sim", style: .Default, handler: { (action: UIAlertAction!) in
+    
+        let cA = Alerts()
+        cA.showAlertOKNOK("Frases Motivacionais", mensagem: "Deseja excluir a frase motivacional ?", preferredstyle: UIAlertControllerStyle.Alert, view: self, completionHandlerOK: { () -> Void in
+            //print("teste" )
             let pos : Int = sender.tag
             self.tableData.removeAtIndex(pos)
             self.saveData()
             self.tableView.reloadData()
-        }))
+            if self.retnData() == 0 {
+                let cNotifs = AtivNotif()
+                cNotifs.desativNotifs()
+                let cPers = RelogioPersistance()
+                cPers.saveSwitchNotif(false)
+            }
+            },completionHandlerNOK: { () -> Void in })
         
-        refreshAlert.addAction(UIAlertAction(title: "Não", style: .Default, handler: { (action: UIAlertAction!) in
-            //não faz nada
-        }))
+//        let refreshAlert = UIAlertController(title: "Frases Motivacionais", message: "Deseja excluir a frase motivacional ?", preferredStyle: UIAlertControllerStyle.Alert)
+//        
+//        refreshAlert.addAction(UIAlertAction(title: "Sim", style: .Default, handler: { (action: UIAlertAction!) in
+//            let pos : Int = sender.tag
+//            self.tableData.removeAtIndex(pos)
+//            self.saveData()
+//            self.tableView.reloadData()
+//        }))
+//        
+//        refreshAlert.addAction(UIAlertAction(title: "Não", style: .Default, handler: { (action: UIAlertAction!) in
+//            //não faz nada
+//        }))
+//        
+//        presentViewController(refreshAlert, animated: true, completion: nil)
         
-        presentViewController(refreshAlert, animated: true, completion: nil)
+        
+
         
     }
 }

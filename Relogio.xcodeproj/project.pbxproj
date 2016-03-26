@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E75F92F1CA3F9D700CF7CF9 /* clsAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75F92E1CA3F9D700CF7CF9 /* clsAlerts.swift */; };
 		3E9BDF001C90D51600E64598 /* ConfigTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9BDEFF1C90D51600E64598 /* ConfigTableViewController.swift */; };
 		3EAEBB6A1C79F162006DADAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAEBB691C79F162006DADAF /* AppDelegate.swift */; };
 		3EAEBB6F1C79F162006DADAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAEBB6D1C79F162006DADAF /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E75F92E1CA3F9D700CF7CF9 /* clsAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clsAlerts.swift; sourceTree = "<group>"; };
 		3E9BDEFF1C90D51600E64598 /* ConfigTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigTableViewController.swift; sourceTree = "<group>"; };
 		3EAEBB661C79F162006DADAF /* Relogio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Relogio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAEBB691C79F162006DADAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				3E9BDEFF1C90D51600E64598 /* ConfigTableViewController.swift */,
 				3EB7F7C31C9236E70053F9D0 /* ChangeColorViewController.swift */,
 				3EC89D391CA20B34002A31D2 /* clsAtivNotif.swift */,
+				3E75F92E1CA3F9D700CF7CF9 /* clsAlerts.swift */,
 			);
 			path = Relogio;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			files = (
 				3EE380031C86EDD300169E48 /* clsPersistance.swift in Sources */,
 				3EDD93E21C7A2DCB00625FAA /* FrasesViewController.swift in Sources */,
+				3E75F92F1CA3F9D700CF7CF9 /* clsAlerts.swift in Sources */,
 				3EDD93E41C7A5DF800625FAA /* CustomTableViewCell.swift in Sources */,
 				3EC89D3A1CA20B34002A31D2 /* clsAtivNotif.swift in Sources */,
 				3EB7F7C41C9236E70053F9D0 /* ChangeColorViewController.swift in Sources */,

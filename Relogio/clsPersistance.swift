@@ -42,6 +42,14 @@ class RelogioPersistance {
         return []
     }
     
+    func loadNFrases() -> Int {
+        if let savedData : [NSString] = defaults.objectForKey("frases") as? [NSString] {
+            
+            return savedData.count
+        }
+        return 0
+    }
+    
     func saveImage(img : UIImage) {
         if let data = UIImagePNGRepresentation(img) {
             defaults.setObject(data, forKey: "backImage")

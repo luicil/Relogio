@@ -36,19 +36,16 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        let cPers = RelogioPersistance()
-        switchNotif = cPers.loadSwitchNotif()
-        minutosNotif = cPers.loadMinutosNotif()
-        self.sliderRelogio.setValue(Float(self.readnDig()), animated: true)
-        self.loadImage()
-        self.sliderTransparencia.setValue(self.loadTransparencia(), animated: true)
-        self.switchNotifs.setOn(switchNotif, animated: true)
-        self.changeAlpha()
-        self.showMinutos()
-        self.showNotifs()
+
+        //self.checkConfigs()
         
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.checkConfigs()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -77,6 +74,20 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func checkConfigs() {
+        let cPers = RelogioPersistance()
+        switchNotif = cPers.loadSwitchNotif() && (cPers.loadNFrases() > 0)
+        minutosNotif = cPers.loadMinutosNotif()
+        self.sliderRelogio.setValue(Float(self.readnDig()), animated: true)
+        self.loadImage()
+        self.sliderTransparencia.setValue(self.loadTransparencia(), animated: true)
+        self.switchNotifs.setOn(switchNotif, animated: true)
+        self.changeAlpha()
+        self.showMinutos()
+        self.showNotifs()
+        self.switchNotifs.enabled = (cPers.loadNFrases() > 0)
+    }
 
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
         let selectedImage : UIImage = image
@@ -140,7 +151,7 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
             self.lblAtivNotifs.text = "Desativar Notificações"
             self.lblMinutosNotifs.enabled = true
             self.stepperNotif.enabled = true
-            cativNotif.ativaNotifs()
+            cativNotif.ativaNotifs(self)
         } else {
             self.lblAtivNotifs.text = "Ativar Notificações"
             self.lblMinutosNotifs.enabled = false
@@ -213,10 +224,7 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
         cPers.saveMinutosNotif(minutosNotif)
         self.showMinutos()
         let cativNotif = AtivNotif()
-        cativNotif.ativaNotifs()
-        
-        
-        
+        cativNotif.ativaNotifs(self)
     }
     
 }
