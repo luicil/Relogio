@@ -38,6 +38,23 @@ class Alerts {
         }))
 
         view.presentViewController(refreshAlert, animated: true, completion: nil)
+        
+    }
+    
+    func showAlertNotif(titulo : String, mensagem: String, preferredstyle : UIAlertControllerStyle, view : UIViewController, completionHandlerOK: CompletionHandler,completionHandlerNOK: CompletionHandler) {
+        let refreshAlert = UIAlertController(title: titulo, message: mensagem, preferredStyle: preferredstyle)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Continuar Notificar", style: .Default, handler: { (action: UIAlertAction!) in
+            completionHandlerOK()
+            //return true
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Parar Notificar", style: .Destructive, handler: { (action: UIAlertAction!) in
+            completionHandlerNOK()
+            //return false
+        }))
+        
+        view.presentViewController(refreshAlert, animated: true, completion: nil)
     }
 
 }

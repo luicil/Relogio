@@ -114,7 +114,6 @@ class RelogioViewController: UIViewController,UIGestureRecognizerDelegate,UITabB
         
         let ativNotif = AtivNotif()
         ativNotif.ativaNotifs(self)
-        
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {

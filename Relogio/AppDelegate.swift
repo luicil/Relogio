@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    //self.window?.rootViewController?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         let cAtivN = AtivNotif()
@@ -23,19 +24,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         application.applicationIconBadgeNumber = 0
-        let cAtivN = AtivNotif()
-        cAtivN.ativaNotifs()
-        
+        for Notif : UILocalNotification in application.scheduledLocalNotifications! {
+            let appView : UIViewController = self.window!.rootViewController!
+            let cA = Alerts()
+            let alert : String = Notif.alertTitle!
+            let mensagem : String = Notif.alertBody!
+            cA.showAlertNotif(alert, mensagem: mensagem, preferredstyle: UIAlertControllerStyle.Alert, view: appView,
+                completionHandlerOK: {() -> Void in
+                    let cAtivN = AtivNotif()
+                    cAtivN.ativaNotifs(appView)}
+                ,
+                completionHandlerNOK: {() -> Void in
+                    let cPers = RelogioPersistance()
+                    cPers.saveSwitchNotif(false)
+                    let cAtivN = AtivNotif()
+                    cAtivN.desativNotifs()}
+            )
+        }
     }
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
-        if notification.category == "INVITE_CATEGORY" {
-            let id = identifier
-        
-        }
         application.applicationIconBadgeNumber = 0
-        let cAtivN = AtivNotif()
-        cAtivN.ativaNotifs()
+        if notification.category == "INVITE_CATEGORY" {
+            let cAtivN = AtivNotif()
+            if identifier == "ACCEPT_IDENTIFIER" {
+                let appView : UIViewController = self.window!.rootViewController!
+                cAtivN.ativaNotifs(appView)
+            } else if identifier == "NOT_NOW_IDENTIFIER"{
+                cAtivN.desativNotifs()
+            }
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -48,15 +66,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
 
-    func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-        if application.applicationIconBadgeNumber > 0 {
-            for Notif : UILocalNotification in application.scheduledLocalNotifications! {
-                
-            }
-
-        }
-    }
+//    func applicationWillEnterForeground(application: UIApplication) {
+//        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+//        if application.applicationIconBadgeNumber > 0 {
+//            for Notif : UILocalNotification in application.scheduledLocalNotifications! {
+//                
+//            }
+//
+//        }
+//    }
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
