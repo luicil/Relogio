@@ -447,11 +447,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="66" id="WEW-94-LFc" userLabel="ImagemFundoTela">
-                                        <rect key="frame" x="0.0" y="967.5" width="600" height="66"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="WEW-94-LFc" userLabel="ImagemFundoTela">
+                                        <rect key="frame" x="0.0" y="967.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WEW-94-LFc" id="Uzu-f4-Mxh">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="65.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="60" translatesAutoresizingMaskIntoConstraints="NO" id="kV5-CC-NFm">
@@ -475,6 +475,36 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="82" id="2hV-OS-DHM" userLabel="ImagemFundoTela">
+                                        <rect key="frame" x="0.0" y="1011.5" width="600" height="82"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2hV-OS-DHM" id="vwr-q9-VQa">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="81.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repetir a cada minuto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1U-W2-8zT">
+                                                    <rect key="frame" x="8" y="12" width="167" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="coc-Tn-HZM">
+                                                    <rect key="frame" x="543" y="7" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="actSwitchRepetir:" destination="DRp-5v-urr" eventType="valueChanged" id="2hS-2X-5uG"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="coc-Tn-HZM" firstAttribute="trailing" secondItem="vwr-q9-VQa" secondAttribute="trailingMargin" id="R5h-7Z-hS6"/>
+                                                <constraint firstItem="F1U-W2-8zT" firstAttribute="leading" secondItem="vwr-q9-VQa" secondAttribute="leadingMargin" id="TlA-lz-A5v"/>
+                                                <constraint firstItem="F1U-W2-8zT" firstAttribute="leading" secondItem="vwr-q9-VQa" secondAttribute="leadingMargin" id="eFL-d4-Zv3"/>
+                                                <constraint firstItem="F1U-W2-8zT" firstAttribute="top" secondItem="vwr-q9-VQa" secondAttribute="topMargin" constant="4" id="gf6-dW-oQe"/>
+                                                <constraint firstItem="coc-Tn-HZM" firstAttribute="top" secondItem="vwr-q9-VQa" secondAttribute="topMargin" constant="-1" id="vqJ-3h-LZa"/>
+                                                <constraint firstItem="F1U-W2-8zT" firstAttribute="top" secondItem="vwr-q9-VQa" secondAttribute="topMargin" constant="4" id="zUd-sy-zFc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -493,6 +523,7 @@
                         <outlet property="sliderTransparencia" destination="Uqt-wg-YAE" id="FGa-vC-HgC"/>
                         <outlet property="stepperNotif" destination="kV5-CC-NFm" id="qtc-dS-TTZ"/>
                         <outlet property="switchNotifs" destination="PZb-Qk-ufd" id="PGV-EI-cRe"/>
+                        <outlet property="switchRepetir" destination="coc-Tn-HZM" id="piA-pN-WUN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xvS-CZ-vlz" userLabel="First Responder" sceneMemberID="firstResponder"/>

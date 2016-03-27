@@ -101,8 +101,17 @@ class RelogioPersistance {
         return defaults.boolForKey("switchNotif")
     }
     
+    func loadSwitchRepetir() -> Bool {
+        return defaults.boolForKey("switchRepetir")
+    }
+    
     func saveSwitchNotif(on : Bool) {
         defaults.setBool(on, forKey: "switchNotif")
+        defaults.synchronize()
+    }
+    
+    func saveSwitchRepetir(on : Bool) {
+        defaults.setBool(on, forKey: "switchRepetir")
         defaults.synchronize()
     }
     

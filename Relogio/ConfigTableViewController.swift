@@ -17,6 +17,7 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
     @IBOutlet weak var lblMinutosNotifs: UILabel!
     @IBOutlet weak var stepperNotif: UIStepper!
     @IBOutlet weak var switchNotifs: UISwitch!
+    @IBOutlet weak var switchRepetir: UISwitch!
     @IBOutlet weak var configTableView: UITableView!
     
     var minutosNotif : Int = 1
@@ -87,6 +88,7 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
         self.showMinutos()
         self.showNotifs()
         self.switchNotifs.enabled = (cPers.loadNFrases() > 0)
+        self.switchRepetir.setOn(cPers.loadSwitchRepetir(), animated: true)
     }
 
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
@@ -217,6 +219,17 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
         cPers.saveSwitchNotif(switchNotif)
         self.showNotifs()
     }
+    
+    
+    @IBAction func actSwitchRepetir(sender: UISwitch) {
+        let cPers = RelogioPersistance()
+        cPers.saveSwitchRepetir(sender.on)
+        if cPers.loadSwitchNotif() {
+            let cativNotif = AtivNotif()
+            cativNotif.ativaNotifs(self)
+        }
+    }
+    
     
     @IBAction func actStepperMinutosNotif(sender: UIStepper) {
         minutosNotif  = Int(sender.value)
