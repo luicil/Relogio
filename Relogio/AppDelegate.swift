@@ -69,22 +69,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-        
-        
-        
-        if application.applicationIconBadgeNumber > 0 {
-            for Notif : UILocalNotification in application.scheduledLocalNotifications! {
-                application.presentLocalNotificationNow(Notif)
-//                let cAtivN = AtivNotif()
-//                let appView : UIViewController = self.window!.rootViewController!
-//                cAtivN.ativaNotifs(appView)
-            }
 
-        }
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        if application.scheduledLocalNotifications!.count > 0 {
+            let Notif : UILocalNotification = application.scheduledLocalNotifications![0]
+            application.presentLocalNotificationNow(Notif)
+        }
+        
+//        if application.applicationIconBadgeNumber > 0 {
+//            for Notif : UILocalNotification in application.scheduledLocalNotifications! {
+//                application.presentLocalNotificationNow(Notif)
+//                //                let cAtivN = AtivNotif()
+//                //                let appView : UIViewController = self.window!.rootViewController!
+//                //                cAtivN.ativaNotifs(appView)
+//            }
+//            
+//        }
+        
     }
 
     func applicationWillTerminate(application: UIApplication) {
