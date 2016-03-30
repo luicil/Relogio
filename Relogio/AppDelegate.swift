@@ -24,37 +24,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         let Notif : UILocalNotification = UIApplication.sharedApplication().scheduledLocalNotifications![0]
+        let cAtivN = AtivNotif()
+        cAtivN.desativNotifs()
         let appView : UIViewController = self.window!.rootViewController!
         let cA = Alerts()
         let alert : String = Notif.alertTitle!
         let mensagem : String = Notif.alertBody!
         cA.showAlertNotif(alert, mensagem: mensagem, preferredstyle: UIAlertControllerStyle.Alert, view: appView,
                           completionHandlerOK: {() -> Void in
-                            let cAtivN = AtivNotif()
                             cAtivN.ativaNotifs(appView)}
             ,
-                          completionHandlerNOK: {() -> Void in
-                            let cPers = RelogioPersistance()
-                            cPers.saveSwitchNotif(false)
-                            let cAtivN = AtivNotif()
-                            cAtivN.desativNotifs()}
+                          completionHandlerNOK: {() -> Void in }
         )
     }
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+        let cAtivN = AtivNotif()
+        cAtivN.desativNotifs()
         if notification.category == "INVITE_CATEGORY" {
-            let cAtivN = AtivNotif()
             if identifier == "ACCEPT_IDENTIFIER" {
                 let appView : UIViewController = self.window!.rootViewController!
                 cAtivN.ativaNotifs(appView)
-            } else if identifier == "NOT_NOW_IDENTIFIER"{
-                cAtivN.desativNotifs()
             }
         }
         completionHandler()
     }
     
-
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
