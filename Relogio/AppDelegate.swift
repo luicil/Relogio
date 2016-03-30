@@ -23,28 +23,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        application.applicationIconBadgeNumber = 0
-        for Notif : UILocalNotification in application.scheduledLocalNotifications! {
-            let appView : UIViewController = self.window!.rootViewController!
-            let cA = Alerts()
-            let alert : String = Notif.alertTitle!
-            let mensagem : String = Notif.alertBody!
-            cA.showAlertNotif(alert, mensagem: mensagem, preferredstyle: UIAlertControllerStyle.Alert, view: appView,
-                completionHandlerOK: {() -> Void in
-                    let cAtivN = AtivNotif()
-                    cAtivN.ativaNotifs(appView)}
-                ,
-                completionHandlerNOK: {() -> Void in
-                    let cPers = RelogioPersistance()
-                    cPers.saveSwitchNotif(false)
-                    let cAtivN = AtivNotif()
-                    cAtivN.desativNotifs()}
-            )
-        }
+        let Notif : UILocalNotification = UIApplication.sharedApplication().scheduledLocalNotifications![0]
+        let appView : UIViewController = self.window!.rootViewController!
+        let cA = Alerts()
+        let alert : String = Notif.alertTitle!
+        let mensagem : String = Notif.alertBody!
+        cA.showAlertNotif(alert, mensagem: mensagem, preferredstyle: UIAlertControllerStyle.Alert, view: appView,
+                          completionHandlerOK: {() -> Void in
+                            let cAtivN = AtivNotif()
+                            cAtivN.ativaNotifs(appView)}
+            ,
+                          completionHandlerNOK: {() -> Void in
+                            let cPers = RelogioPersistance()
+                            cPers.saveSwitchNotif(false)
+                            let cAtivN = AtivNotif()
+                            cAtivN.desativNotifs()}
+        )
     }
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
-        application.applicationIconBadgeNumber = 0
         if notification.category == "INVITE_CATEGORY" {
             let cAtivN = AtivNotif()
             if identifier == "ACCEPT_IDENTIFIER" {
@@ -54,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 cAtivN.desativNotifs()
             }
         }
+        completionHandler()
     }
     
 
@@ -75,21 +73,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
-        if application.scheduledLocalNotifications!.count > 0 {
-            let Notif : UILocalNotification = application.scheduledLocalNotifications![0]
-            application.presentLocalNotificationNow(Notif)
+        if UIApplication.sharedApplication().scheduledLocalNotifications!.count > 0 {
+            let Notif : UILocalNotification = UIApplication.sharedApplication().scheduledLocalNotifications![0]
+            let dataNow : NSDate = NSDate(timeIntervalSinceNow: 0.0)
+            let fireDate = Notif.fireDate
+            if fireDate?.compare(dataNow) == NSComparisonResult.OrderedAscending {
+                UIApplication.sharedApplication().presentLocalNotificationNow(Notif)
+            }
         }
-        
-//        if application.applicationIconBadgeNumber > 0 {
-//            for Notif : UILocalNotification in application.scheduledLocalNotifications! {
-//                application.presentLocalNotificationNow(Notif)
-//                //                let cAtivN = AtivNotif()
-//                //                let appView : UIViewController = self.window!.rootViewController!
-//                //                cAtivN.ativaNotifs(appView)
-//            }
-//            
-//        }
-        
     }
 
     func applicationWillTerminate(application: UIApplication) {
