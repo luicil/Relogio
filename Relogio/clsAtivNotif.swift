@@ -58,6 +58,7 @@ class AtivNotif {
                     localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
                     localNotification.category = "INVITE_CATEGORY"
                     localNotification.soundName = UILocalNotificationDefaultSoundName
+                    localNotification.userInfo = ["ID:": NSUUID().UUIDString]
                     if cPers.loadSwitchRepetir() {
                         localNotification.repeatInterval = NSCalendarUnit.Minute
                     }
