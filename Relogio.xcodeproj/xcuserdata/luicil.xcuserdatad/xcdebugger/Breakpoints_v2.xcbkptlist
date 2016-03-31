@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Relogio/AppDelegate.swift"
-            timestampString = "481027418.495712"
+            filePath = "Relogio/clsAtivNotif.swift"
+            timestampString = "481075611.663182"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "application(_:didReceiveLocalNotification:)"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "ativaNotifs(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Relogio/AppDelegate.swift"
-            timestampString = "481027222.094914"
+            filePath = "Relogio/clsAtivNotif.swift"
+            timestampString = "481075615.592929"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "application(_:handleActionWithIdentifier:forLocalNotification:completionHandler:)"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "desativNotifs()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

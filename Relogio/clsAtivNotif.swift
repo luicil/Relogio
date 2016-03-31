@@ -39,14 +39,15 @@ class AtivNotif {
     }
     
     func ativaNotifs(view : UIViewController) {
-        self.desativNotifs()
         let cPers = RelogioPersistance()
-        let Minutos = cPers.loadMinutosNotif() * 60
         let switchNotif = cPers.loadSwitchNotif()
+        self.desativNotifs()
+        let Minutos = cPers.loadMinutosNotif() * 60
         if switchNotif {
             if let savedData : [NSString] = cPers.loadFrases() {
                 let nItens : Int = savedData.count
                 if nItens > 0 {
+                    cPers.saveSwitchNotif(true)
                     //nItens += 1
                     let rndNumber : Int = Int(arc4random_uniform(UInt32(nItens)))
                     let localNotification = UILocalNotification()
@@ -64,8 +65,6 @@ class AtivNotif {
                 } else {
                     let cAlert = Alerts()
                     cAlert.showAlertOK("Relógio", mensagem: "Não há frases motivacionais !\n As notificações serão desativadas.", preferredstyle: UIAlertControllerStyle.Alert, view: view, completionHandlerOK: { () -> Void in
-                        let cPers = RelogioPersistance()
-                        cPers.saveSwitchNotif(false)
                     })
                 }
             }
@@ -75,6 +74,8 @@ class AtivNotif {
     func desativNotifs() {
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         UIApplication.sharedApplication().scheduledLocalNotifications?.removeAll()
+        let cPers = RelogioPersistance()
+        cPers.saveSwitchNotif(false)
     }
     
 }
