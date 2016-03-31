@@ -153,6 +153,7 @@ class ConfigTableViewController: UITableViewController,UINavigationControllerDel
             self.lblAtivNotifs.text = "Desativar Notificações"
             self.lblMinutosNotifs.enabled = true
             self.stepperNotif.enabled = true
+            cativNotif.desativNotifs()
             cativNotif.ativaNotifs(self)
         } else {
             self.lblAtivNotifs.text = "Ativar Notificações"

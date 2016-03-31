@@ -67,7 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        
         if UIApplication.sharedApplication().scheduledLocalNotifications!.count > 0 {
             let Notif : UILocalNotification = UIApplication.sharedApplication().scheduledLocalNotifications![0]
             let dataNow : NSDate = NSDate(timeIntervalSinceNow: 0.0)

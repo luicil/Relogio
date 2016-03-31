@@ -40,10 +40,10 @@ class AtivNotif {
     
     func ativaNotifs(view : UIViewController) {
         let cPers = RelogioPersistance()
-        let switchNotif = cPers.loadSwitchNotif()
-        self.desativNotifs()
+//        let switchNotif = cPers.loadSwitchNotif()
+//        self.desativNotifs()
         let Minutos = cPers.loadMinutosNotif() * 60
-        if switchNotif {
+        //if switchNotif {
             if let savedData : [NSString] = cPers.loadFrases() {
                 let nItens : Int = savedData.count
                 if nItens > 0 {
@@ -69,7 +69,7 @@ class AtivNotif {
                     })
                 }
             }
-        }
+        //}
     }
     
     func desativNotifs() {
