@@ -23,19 +23,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        let Notif : UILocalNotification = UIApplication.sharedApplication().scheduledLocalNotifications![0]
-        let cAtivN = AtivNotif()
-        cAtivN.desativNotifs()
-        let appView : UIViewController = self.window!.rootViewController!
-        let cA = Alerts()
-        let alert : String = Notif.alertTitle!
-        let mensagem : String = Notif.alertBody!
-        cA.showAlertNotif(alert, mensagem: mensagem, preferredstyle: UIAlertControllerStyle.Alert, view: appView,
-                          completionHandlerOK: {() -> Void in
-                            cAtivN.ativaNotifs(appView)}
-            ,
-                          completionHandlerNOK: {() -> Void in }
-        )
+        if UIApplication.sharedApplication().scheduledLocalNotifications?.count > 0 {
+            let Notif : UILocalNotification = UIApplication.sharedApplication().scheduledLocalNotifications![0]
+            let cAtivN = AtivNotif()
+            cAtivN.desativNotifs()
+            let appView : UIViewController = self.window!.rootViewController!
+            let cA = Alerts()
+            let alert : String = Notif.alertTitle!
+            let mensagem : String = Notif.alertBody!
+            cA.showAlertNotif(alert, mensagem: mensagem, preferredstyle: UIAlertControllerStyle.Alert, view: appView,
+                              completionHandlerOK: {() -> Void in
+                                cAtivN.ativaNotifs(appView)}
+                ,
+                              completionHandlerNOK: {() -> Void in }
+            )
+        }
     }
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {

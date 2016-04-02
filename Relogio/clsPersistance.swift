@@ -128,4 +128,18 @@ class RelogioPersistance {
         defaults.synchronize()
     }
     
+    func imageIsNullOrNot(imageName : UIImage)-> Bool
+    {
+        
+        let size = CGSize(width: 0, height: 0)
+        if (imageName.size.width == size.width)
+        {
+            return false
+        }
+        else
+        {
+            return true
+        }
+    }
+    
 }

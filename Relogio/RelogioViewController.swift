@@ -15,7 +15,12 @@ class RelogioViewController: UIViewController,UIGestureRecognizerDelegate,UITabB
     
     func startClock() {
         let cPers = RelogioPersistance()
-        self.imageViewRelogio.image = cPers.loadImage()
+        let uimage : UIImage = cPers.loadImage()
+        if cPers.imageIsNullOrNot(uimage) {
+            self.imageViewRelogio.image = uimage
+        } else {
+            self.imageViewRelogio.image = nil
+        }
         self.imageViewRelogio.alpha = CGFloat(cPers.loadTransparencia())
         let endAngle = CGFloat(2*M_PI)
         if let viewWithTag = self.view.viewWithTag(100){
@@ -89,6 +94,9 @@ class RelogioViewController: UIViewController,UIGestureRecognizerDelegate,UITabB
         centerPiece.fillColor = cPers.loadCor("corCirculoCentroRelogio", defaultColor: UIColor.whiteColor()).CGColor
         centerPiece.name="circulo"
         self.view.layer.addSublayer(centerPiece)
+        
+
+        
     }
     
 //    override func viewWillAppear(animated: Bool) {
@@ -100,11 +108,12 @@ class RelogioViewController: UIViewController,UIGestureRecognizerDelegate,UITabB
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        NSNotificationCenter.defaultCenter().addObserver(
-            self,
-            selector: #selector(RelogioViewController.startClock),
-            name: UIApplicationDidBecomeActiveNotification,
-            object: nil)
+        //NSNotificationCenter.defaultCenter().addObserver(
+        //    self,
+        //    selector: #selector(RelogioViewController.startClock),
+        //    name: UIApplicationDidBecomeActiveNotification,
+        //    object: nil)
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(RelogioViewController.handleTap))
         tap.delegate = self
         self.imageViewRelogio.userInteractionEnabled = true
