@@ -99,20 +99,9 @@ class RelogioViewController: UIViewController,UIGestureRecognizerDelegate,UITabB
         
     }
     
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        self.startClock()
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        //NSNotificationCenter.defaultCenter().addObserver(
-        //    self,
-        //    selector: #selector(RelogioViewController.startClock),
-        //    name: UIApplicationDidBecomeActiveNotification,
-        //    object: nil)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(RelogioViewController.handleTap))
         tap.delegate = self
@@ -131,12 +120,6 @@ class RelogioViewController: UIViewController,UIGestureRecognizerDelegate,UITabB
              AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
     }
-    
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        self.startClock()
-//        
-//    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -157,26 +140,6 @@ class RelogioViewController: UIViewController,UIGestureRecognizerDelegate,UITabB
         self.tabBarController?.tabBar.hidden = !tbh
         self.startClock()
     }
-    
-//    func setTabBarVisible(visible: Bool, animated: Bool) {
-//        let frame = self.tabBarController?.tabBar.frame
-//        let height = frame?.size.height
-//        let offsetY = (visible ? -height! : height)
-//        let duration:NSTimeInterval = (animated ? 0.3 : 0.0)
-//        if frame != nil {
-//            UIView.animateWithDuration(duration) {
-//                self.tabBarController?.tabBar.frame = CGRectOffset(frame!, 0, offsetY!)
-//                self.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height + offsetY!)
-//                self.view.setNeedsDisplay()
-//                self.view.layoutIfNeeded()
-//                return
-//            }
-//        }
-//    }
-//    
-//    func tabBarIsVisible() -> Bool {
-//        return self.tabBarController?.tabBar.frame.origin.y < UIScreen.mainScreen().bounds.height
-//    }
     
 }
 

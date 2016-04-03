@@ -77,7 +77,13 @@ class RelogioPersistance {
     }
     
     func loadTransparencia() -> Float {
-        return defaults.floatForKey("transparencia")
+        let myOutput: AnyObject? = defaults.objectForKey("transparencia")
+        if myOutput != nil {
+            return defaults.floatForKey("transparencia")
+        } else {
+            return 1.0
+        }
+        //return defaults.floatForKey("transparencia")
     }
     
     func loadCor(chave : String, defaultColor : UIColor) -> UIColor {
