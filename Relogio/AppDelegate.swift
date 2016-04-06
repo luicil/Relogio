@@ -35,7 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                               completionHandlerOK: {() -> Void in
                                 cAtivN.ativaNotifs(appView)}
                 ,
-                              completionHandlerNOK: {() -> Void in }
+                              completionHandlerNOK: {() -> Void in
+                                cAtivN.desativNotifs()}
             )
         }
     }
