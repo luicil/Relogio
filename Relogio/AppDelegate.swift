@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let mensagem : String = Notif.alertBody!
             cA.showAlertNotif(alert, mensagem: mensagem, preferredstyle: UIAlertControllerStyle.Alert, view: appView,
                               completionHandlerOK: {() -> Void in
+                                cAtivN.desativNotifs()
                                 cAtivN.ativaNotifs(appView)}
                 ,
                               completionHandlerNOK: {() -> Void in
